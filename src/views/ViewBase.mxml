@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View 
+	xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:components="views.components.*"
+		backgroundAlpha="0"
+		>
+	<s:layout>
+		<s:VerticalLayout paddingTop="10" horizontalAlign="center" verticalAlign="top"/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+			
+			protected function imagebutton_back_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.backKeyUpHandler();				
+			}
+			
+			protected function settingButton_clickedHandler(event:MouseEvent):void
+			{
+			}
+			//About chart 
+			
+		]]>
+	</fx:Script>
+	
+	<!--<s:TabbedViewNavigator width="100%" height="94" skinClass="skins.Skin_TabbedViewNavigator">
+		<s:ViewNavigator icon="@Embed('../assets/images/mail.png')"/>
+	</s:TabbedViewNavigator>-->
+	
+	<!-- Override the navigation area to insert a BACK button. -->
+	<s:navigationContent>
+		<components:ImageButton skinClass="skins.Skin_BackButton" label="BACK" click="imagebutton_back_clickHandler(event)"/>
+	</s:navigationContent>
+	<!-- Override the title to insert a Label control. -->
+	<s:titleContent>
+		
+		<s:RichText color="0x030303"
+					horizontalCenter="0" verticalCenter="0">
+			<s:textFlow>
+				<s:TextFlow>
+					<s:span fontWeight="bold">CRM DASHBOARD</s:span>
+				</s:TextFlow>
+			</s:textFlow>
+		</s:RichText>
+		
+	</s:titleContent>
+	<!-- Override the action area to insert a Setting button. -->
+	<s:actionContent>
+		<components:ImageButton skinClass="skins.Skin_SettingButton" label="" click="settingButton_clickedHandler(event)"/>
+	</s:actionContent>
+	
+</s:View>

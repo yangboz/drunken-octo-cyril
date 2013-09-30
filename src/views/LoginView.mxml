@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		title=""
+		backgroundAlpha="0" xmlns:components="views.components.*"
+		>
+	
+	<fx:Script>
+		<![CDATA[
+//			import mx.resources.ResourceManager;
+			//
+			protected function loginBtn_clickHandler(event:MouseEvent):void
+			{
+//				this.navigator.pushView(HomeView);
+//				trace(ResourceManager.getInstance().localeChain);
+			}
+		]]>
+	</fx:Script>
+	
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:VGroup horizontalCenter="0" verticalCenter="0" gap="30" horizontalAlign="center" verticalAlign="middle">
+			
+		<s:VGroup horizontalCenter="0" verticalCenter="0" >
+			
+			<s:BorderContainer backgroundImage="@Embed('../assets/images/login.png')" 
+							   width="558" height="194"
+							   borderAlpha="0"
+							   >
+				
+				<s:VGroup horizontalCenter="0" verticalCenter="0" gap="40">
+					<s:TextInput prompt="{resourceManager.getString('default', 'TXT_USER_NAME')}" width="500" height="60" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
+					<s:TextInput prompt="{resourceManager.getString('default', 'TXT_PASSWORD')}" width="500" height="60" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
+				</s:VGroup>
+				
+			</s:BorderContainer>
+			
+		</s:VGroup>
+		
+		<components:ImageButton skinClass="skins.Skin_LoginButton" label="LOGIN" click="loginBtn_clickHandler(event)"
+							    color="0x5E9F01"
+								/>
+		
+		<s:RichText id="richTxt" color="0xFEFFFF"
+					horizontalCenter="0" verticalCenter="0">
+			<s:textFlow>
+				<s:TextFlow>
+					<s:span fontWeight="bold">MS DYNAMICS CRM DASHBOARD <s:br></s:br><s:tab></s:tab>MOBILE CASES V1.0</s:span>
+				</s:TextFlow>
+			</s:textFlow>
+		</s:RichText>
+		
+	</s:VGroup>
+	<!-- Override the title to insert a Label control. -->
+	<s:titleContent>
+		<!--<s:BorderContainer borderColor="black" borderVisible="false">-->
+			<s:Image source="@Embed('/assets/images/logo.png')"/>
+		<!--</s:BorderContainer>-->
+	</s:titleContent>
+</s:View>

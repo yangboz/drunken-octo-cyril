@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+							xmlns:s="library://ns.adobe.com/flex/spark" 
+						    splashScreenImage="@Embed('assets/images/splash.png')"
+						    splashScreenScaleMode="zoom"
+							skinClass="skins.Skin_AppView"
+						    creationComplete="viewnavigatorapplication_creationCompleteHandler(event)"
+							>
+		<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		s|ActionBar {
+			skinClass:ClassReference("skins.Skin_ActionBar");
+			defaultButtonAppearance: beveled;
+		}
+		s|ActionBar #titleDisplay {
+			fontWeight:normal;
+			color: #000000;
+		}
+		s|ActionBar #titleGroup {
+			fontWeight:normal;
+			color: #FFFFFF;
+		}
+		/*
+		s|Application { 
+		locale: 'pt_BR';pt_BR,en_US
+		}
+		*/
+		global {
+			modal-transparency: .4;
+			modal-transparency-blur: 1;
+			modal-transparency-color: #7A7A7A;
+		}
+	</fx:Style>
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import views.components.LoginPopup;
+			
+			protected function viewnavigatorapplication_creationCompleteHandler(event:FlexEvent):void
+			{
+				//Firstly invisible the navigator as required.
+				this.navigator.visible = false;
+				//Popup login window
+				var menuPopup:LoginPopup = new LoginPopup();
+				menuPopup.open(this, true);
+				PopUpManager.centerPopUp(menuPopup);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+</s:ViewNavigatorApplication>
