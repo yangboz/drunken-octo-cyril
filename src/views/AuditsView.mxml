@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:ViewBase xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:mx="library://ns.adobe.com/flex/mx"
 		xmlns:components="views.components.*"
 	    creationComplete="view_creationCompleteHandler(event)"
 		backgroundAlpha="0"
@@ -31,13 +32,35 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<s:VGroup horizontalCenter="0" verticalCenter="0" gap="-120" width="493" height="489" horizontalAlign="center" verticalAlign="middle">
+	<!--<s:VGroup horizontalCenter="0" verticalCenter="0" horizontalAlign="center" verticalAlign="middle" 
+			  paddingBottom="10"
+			  paddingLeft="10"
+			  paddingRight="10"
+			  paddingTop="10"
+			  >-->
 			
-		<s:BorderContainer width="493" height="489" backgroundImage="@Embed('../assets/images/login.png')" borderAlpha="0">
+		<s:BorderContainer width="1265" height="661" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
 			
-			<s:VGroup paddingLeft="150" paddingTop="8" verticalCenter="0" gap="37" height="300">
+			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58">
+				<s:BorderContainer id="actionBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/actionBar-bg.png')" borderAlpha="0">
+					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
+						<s:Button icon="@Embed('../assets/images/icon-select-gray.png')" label="Select All"/>
+						<s:Button icon="@Embed('../assets/images/icon-trash-gray.png')" label="Delete"/>
+						<s:Spacer width="100%" height="100%"/>
+						<s:Label text="Show:"/>
+						<s:TabBar>  
+							<mx:ArrayCollection>
+								<fx:String>Active</fx:String> 
+								<fx:String>Inactive</fx:String> 
+								<fx:String>All</fx:String> 
+							</mx:ArrayCollection>
+						</s:TabBar>
+					</s:HGroup>
+					
+				</s:BorderContainer>
+				<s:Spacer width="100%" height="100%"/>
 			</s:VGroup>
 		</s:BorderContainer>
-	</s:VGroup>
+	<!--</s:VGroup>-->
 	
 </views:ViewBase>
