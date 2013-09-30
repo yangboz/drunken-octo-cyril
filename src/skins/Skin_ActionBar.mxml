@@ -37,10 +37,10 @@
 			 left="0"
 			 top="0"/>
 	
-	<s:Group id="titleGroup" horizontalCenter="0" verticalCenter="0"/>
+	<s:Group id="titleGroup" left="50" verticalCenter="0"/>
 	
 	<s:Group id="actionGroup"
-			 right="0"
+			 right="10"
 			 top="0"/>
 	
 	<!--<s:Label id="titleDisplay"

@@ -10,8 +10,6 @@
 	</s:layout>
 	<fx:Script>
 		<![CDATA[
-			import mx.managers.PopUpManager;
-			
 			protected function imagebutton_back_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.backKeyUpHandler();				
@@ -31,16 +29,16 @@
 	
 	<!-- Override the navigation area to insert a BACK button. -->
 	<s:navigationContent>
-		<components:ImageButton skinClass="skins.Skin_BackButton" label="BACK" click="imagebutton_back_clickHandler(event)"/>
+		<components:ImageButton skinClass="skins.Skin_SettingButton" label="" click="settingButton_clickedHandler(event)"/>
 	</s:navigationContent>
 	<!-- Override the title to insert a Label control. -->
 	<s:titleContent>
 		
-		<s:RichText color="0x030303"
+		<s:RichText color="0xFFFFFF"
 					horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
-					<s:span fontWeight="bold">CRM DASHBOARD</s:span>
+					<s:span fontWeight="bold">Audits List</s:span>
 				</s:TextFlow>
 			</s:textFlow>
 		</s:RichText>
@@ -48,7 +46,7 @@
 	</s:titleContent>
 	<!-- Override the action area to insert a Setting button. -->
 	<s:actionContent>
-		<components:ImageButton skinClass="skins.Skin_SettingButton" label="" click="settingButton_clickedHandler(event)"/>
+		<s:Image source="@Embed('../assets/images/logo.png')"/>
 	</s:actionContent>
 	
 </s:View>
