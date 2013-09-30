@@ -3,7 +3,8 @@
 							xmlns:s="library://ns.adobe.com/flex/spark" 
 						    splashScreenImage="@Embed('assets/images/splash.png')"
 						    splashScreenScaleMode="zoom"
-							skinClass="skins.Skin_AppView"
+							skinClass="skins.Skin_LoginView"
+						    firstView="views.LoginView"
 						    creationComplete="viewnavigatorapplication_creationCompleteHandler(event)"
 							>
 		<fx:Style>
@@ -34,18 +35,11 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
-			import mx.managers.PopUpManager;
-			
-			import views.components.LoginPopup;
 			
 			protected function viewnavigatorapplication_creationCompleteHandler(event:FlexEvent):void
 			{
 				//Firstly invisible the navigator as required.
-				this.navigator.visible = false;
-				//Popup login window
-				var menuPopup:LoginPopup = new LoginPopup();
-				menuPopup.open(this, true);
-				PopUpManager.centerPopUp(menuPopup);
+//				this.navigator.visible = false;
 			}
 			
 		]]>

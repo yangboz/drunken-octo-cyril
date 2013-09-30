@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		title=""
-		backgroundAlpha="0" xmlns:components="views.components.*"
+		xmlns:components="views.components.*"
+	    creationComplete="view_creationCompleteHandler(event)"
+	    actionBarVisible="false"
+		backgroundAlpha="0"
 		>
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.events.FlexEvent;
 //			import mx.resources.ResourceManager;
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
-//				this.navigator.pushView(HomeView);
+				this.navigator.pushView(AuditsView);
 //				trace(ResourceManager.getInstance().localeChain);
 			}
+			
+			protected function view_creationCompleteHandler(event:FlexEvent):void
+			{
+				
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -21,42 +30,18 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<s:VGroup horizontalCenter="0" verticalCenter="0" gap="30" horizontalAlign="center" verticalAlign="middle">
+	<s:VGroup horizontalCenter="0" verticalCenter="0" gap="-120" width="493" height="489" horizontalAlign="center" verticalAlign="middle">
 			
-		<s:VGroup horizontalCenter="0" verticalCenter="0" >
+		<s:BorderContainer width="493" height="489" backgroundImage="@Embed('../assets/images/login.png')" borderAlpha="0">
 			
-			<s:BorderContainer backgroundImage="@Embed('../assets/images/login.png')" 
-							   width="558" height="194"
-							   borderAlpha="0"
-							   >
-				
-				<s:VGroup horizontalCenter="0" verticalCenter="0" gap="40">
-					<s:TextInput prompt="{resourceManager.getString('default', 'TXT_USER_NAME')}" width="500" height="60" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
-					<s:TextInput prompt="{resourceManager.getString('default', 'TXT_PASSWORD')}" width="500" height="60" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
-				</s:VGroup>
-				
-			</s:BorderContainer>
-			
-		</s:VGroup>
-		
-		<components:ImageButton skinClass="skins.Skin_LoginButton" label="LOGIN" click="loginBtn_clickHandler(event)"
-							    color="0x5E9F01"
-								/>
-		
-		<s:RichText id="richTxt" color="0xFEFFFF"
-					horizontalCenter="0" verticalCenter="0">
-			<s:textFlow>
-				<s:TextFlow>
-					<s:span fontWeight="bold">MS DYNAMICS CRM DASHBOARD <s:br></s:br><s:tab></s:tab>MOBILE CASES V1.0</s:span>
-				</s:TextFlow>
-			</s:textFlow>
-		</s:RichText>
-		
+			<s:VGroup paddingLeft="150" paddingTop="8" verticalCenter="0" gap="37" height="300">
+				<s:TextInput prompt="USERNAME" width="230" height="32" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
+				<s:TextInput prompt="PASSWORD" width="230" height="32" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
+				<s:TextInput prompt="UNITED KINGDOM" width="180" height="32" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" editable="false"/>
+				<s:TextInput prompt="UAT" width="180" height="32" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" editable="false"/>
+			</s:VGroup>
+		</s:BorderContainer>
+		<s:Button width="280" height="50" buttonMode="true" click="loginBtn_clickHandler(event)" alpha="0"/>	
 	</s:VGroup>
-	<!-- Override the title to insert a Label control. -->
-	<s:titleContent>
-		<!--<s:BorderContainer borderColor="black" borderVisible="false">-->
-			<s:Image source="@Embed('/assets/images/logo.png')"/>
-		<!--</s:BorderContainer>-->
-	</s:titleContent>
+	
 </s:View>

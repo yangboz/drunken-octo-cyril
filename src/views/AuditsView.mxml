@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:components="views.components.*"
+	    creationComplete="view_creationCompleteHandler(event)"
+		backgroundAlpha="0"
+	    actionBarVisible="true"
+		>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+//			import mx.resources.ResourceManager;
+			//
+			protected function loginBtn_clickHandler(event:MouseEvent):void
+			{
+//				this.navigator.pushView(HomeView);
+//				trace(ResourceManager.getInstance().localeChain);
+			}
+			
+			protected function view_creationCompleteHandler(event:FlexEvent):void
+			{
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:VGroup horizontalCenter="0" verticalCenter="0" gap="-120" width="493" height="489" horizontalAlign="center" verticalAlign="middle">
+			
+		<s:BorderContainer width="493" height="489" backgroundImage="@Embed('../assets/images/login.png')" borderAlpha="0">
+			
+			<s:VGroup paddingLeft="150" paddingTop="8" verticalCenter="0" gap="37" height="300">
+			</s:VGroup>
+		</s:BorderContainer>
+	</s:VGroup>
+	
+</s:View>
