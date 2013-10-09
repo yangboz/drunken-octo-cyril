@@ -52,7 +52,7 @@
 			  paddingTop="10"
 			  >-->
 			
-		<s:BorderContainer width="1265" height="661" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
+		<s:BorderContainer width="1265" height="616" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
 			
 			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58">
 				<s:BorderContainer id="actionBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/actionBar-bg.png')" borderAlpha="0">
@@ -78,7 +78,7 @@
 						</s:TabBar>
 					</s:HGroup>
 				</s:BorderContainer>
-				<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="545">
+				<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="500">
 				</s:VGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
