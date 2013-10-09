@@ -35,7 +35,7 @@
 			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
-				this.navigator.backKeyUpHandler();			
+				this.navigator.pushView(AuditsListView);
 			}
 			
 		]]>
@@ -52,20 +52,18 @@
 			  paddingTop="10"
 			  >-->
 			
-		<s:BorderContainer width="1265" height="461" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
+		<s:BorderContainer width="1265" height="661" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
 			
 			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58">
 				<s:BorderContainer id="actionBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/actionBar-bg.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" height="100%" paddingLeft="10" paddingRight="10">
 						<s:Button icon="@Embed('../assets/images/icon-select-gray.png')" 
 								  label=" Select All" skinClass="skins.Skin_TransparentButton"
-								  click="audits_btn_clickHandler(event)"
 								  buttonMode="true"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-trash-gray.png')" 
 								  label="Delete" skinClass="skins.Skin_TransparentButton"
-								  click="audits_btn_clickHandler(event)"
 								  buttonMode="true"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
@@ -80,7 +78,7 @@
 						</s:TabBar>
 					</s:HGroup>
 				</s:BorderContainer>
-				<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="345">
+				<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="545">
 				</s:VGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
