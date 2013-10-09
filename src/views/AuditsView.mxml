@@ -70,8 +70,8 @@
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Spacer width="300" height="100%"/>
-						<s:Label text="Show:"/>
-						<s:TabBar >  
+						<s:Label text="Show:" fontWeight="bold" color="0x5A5A5A"/>
+						<s:TabBar skinClass="skins.Skin_TabBar">  
 							<mx:ArrayCollection>
 								<fx:String>Active</fx:String> 
 								<fx:String>Inactive</fx:String> 
