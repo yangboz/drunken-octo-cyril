@@ -7,10 +7,13 @@
 		backgroundAlpha="0"
 	    actionBarVisible="true"
 		xmlns:views="views.*"
+		xmlns:containers="com.iwobanas.containers.*"
 		>
 	
 	<fx:Script>
 		<![CDATA[
+			import com.iwobanas.skins.CollapsiblePanelSkin;
+			
 			import mx.events.FlexEvent;
 //			import mx.resources.ResourceManager;
 			//
@@ -23,6 +26,11 @@
 			protected function view_creationCompleteHandler(event:FlexEvent):void
 			{
 				
+			}
+			
+			override protected function settingButton_clickedHandler(event:MouseEvent):void
+			{
+//				collapsibleSettingPanel.collapseButton.visible = true;
 			}
 			
 		]]>
@@ -39,7 +47,7 @@
 			  paddingTop="10"
 			  >-->
 			
-		<s:BorderContainer width="1265" height="661" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
+		<s:BorderContainer width="1265" height="461" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
 			
 			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58">
 				<s:BorderContainer id="actionBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/actionBar-bg.png')" borderAlpha="0">
@@ -56,11 +64,25 @@
 							</mx:ArrayCollection>
 						</s:TabBar>
 					</s:HGroup>
-					
 				</s:BorderContainer>
-				<s:Spacer width="100%" height="100%"/>
+				<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="345">
+				</s:VGroup>
+				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
+					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
+						<s:Button icon="@Embed('../assets/images/icon-select-gray.png')" label="Availble Audits"/>
+					</s:HGroup>
+				</s:BorderContainer>
 			</s:VGroup>
 		</s:BorderContainer>
-	<!--</s:VGroup>-->
+	<!--<containers:CollapsiblePanel id="collapsibleSettingPanel" height="100%" width="100"
+								 skinClass="com.iwobanas.skins.CollapsiblePanelSkin"
+								 title="collapsibleSettingPanel" >
+		
+		<containers:layout>
+			<s:VerticalLayout paddingRight="10" paddingLeft="10" paddingTop="10" paddingBottom="10" />
+		</containers:layout>
+		<s:NumericStepper id="sampleStepper" />
+		
+	</containers:CollapsiblePanel>-->
 	
 </views:ViewBase>
