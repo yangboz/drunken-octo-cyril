@@ -12,9 +12,10 @@
 	
 	<fx:Script>
 		<![CDATA[
-//			import com.iwobanas.skins.CollapsiblePanelSkin;
-			
 			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import views.components.AuditsDownloadPopup;
 //			import mx.resources.ResourceManager;
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
@@ -36,6 +37,13 @@
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.pushView(AuditsView);		
+			}
+			
+			protected function download_btn_clickHandler(event:MouseEvent):void
+			{
+				var menuPopup:AuditsDownloadPopup = new AuditsDownloadPopup();
+				menuPopup.open(this, true);
+				PopUpManager.centerPopUp(menuPopup);
 			}
 			
 		]]>
@@ -65,6 +73,7 @@
 						<s:Button icon="@Embed('../assets/images/icon-download-gray.png')" 
 								  label="Download" skinClass="skins.Skin_TransparentButton"
 								  buttonMode="true"
+								  click="download_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 					</s:HGroup>
@@ -74,7 +83,7 @@
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
 						<s:Button icon="@Embed('../assets/images/icon-avilable_audits.png')" 
-								  label=" Audits List" skinClass="skins.Skin_TransparentButton"
+								  label="  Availble Audits" skinClass="skins.Skin_TransparentButton"
 								  click="audits_btn_clickHandler(event)"
 								  buttonMode="true"
 								  />
@@ -93,5 +102,18 @@
 		<s:NumericStepper id="sampleStepper" />
 		
 	</containers:CollapsiblePanel>-->
+	
+	<views:titleContent>
+		
+		<s:RichText color="0xFFFFFF"
+					horizontalCenter="0" verticalCenter="0">
+			<s:textFlow>
+				<s:TextFlow>
+					<s:span fontWeight="bold">Audits List</s:span>
+				</s:TextFlow>
+			</s:textFlow>
+		</s:RichText>
+		
+	</views:titleContent>
 	
 </views:ViewBase>
