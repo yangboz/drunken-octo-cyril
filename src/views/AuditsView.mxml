@@ -13,9 +13,10 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
 			
-			import skins.Skin_ToggleButton;
-//			import mx.resources.ResourceManager;
+			import views.components.AuditsDownloadPopup;
+			
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -38,6 +39,12 @@
 				this.navigator.pushView(AuditsListView);
 			}
 			
+			protected function download_btn_clickHandler(event:MouseEvent):void
+			{
+				var menuPopup:AuditsDownloadPopup = new AuditsDownloadPopup();
+				menuPopup.open(this, true);
+				PopUpManager.centerPopUp(menuPopup);
+			}
 		]]>
 	</fx:Script>
 	
@@ -62,20 +69,12 @@
 								  buttonMode="true"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Button icon="@Embed('../assets/images/icon-trash-gray.png')" 
-								  label="Delete" skinClass="skins.Skin_TransparentButton"
+						<s:Button icon="@Embed('../assets/images/icon-download-gray.png')" 
+								  label="Download" skinClass="skins.Skin_TransparentButton"
 								  buttonMode="true"
+								  click="download_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Spacer width="300" height="100%"/>
-						<s:Label text="Show:" fontWeight="bold" color="0x5A5A5A"/>
-						<s:TabBar skinClass="skins.Skin_TabBar">  
-							<mx:ArrayCollection>
-								<fx:String>Active</fx:String> 
-								<fx:String>Inactive</fx:String> 
-								<fx:String>All</fx:String> 
-							</mx:ArrayCollection>
-						</s:TabBar>
 					</s:HGroup>
 				</s:BorderContainer>
 				<s:VGroup paddingTop="8" paddingLeft="100" paddingRight="100" verticalAlign="middle" width="1251" height="500">
@@ -86,53 +85,44 @@
 							downColor="0x70B2EE"
 							selectionColor="0x70B2EE"
 							labelField="productName"
-
 							>
 						<s:itemRenderer>
-							<!--<fx:Component>
-								<s:IconItemRenderer 
-									decorator="@Embed('../assets/images/icon-select-blue.png')"
-									iconPlaceholder="@Embed('../assets/images/icon-select-gray.png')"
-									iconField="productIcon" 
-									iconWidth="26" 
-									iconHeight="26"
-									messageField="productDesc" />
-							</fx:Component>-->
-						<fx:Component>
-							<s:ItemRenderer>
-								<s:BorderContainer backgroundImage="@Embed('../assets/images/item-right1.png')"
-												   borderVisible="false"
-												   width="1174" height="131"
-												   >
-									<s:HGroup width="100%" height="100%" verticalAlign="middle" paddingLeft="10" gap="20">
-										<s:Spacer width="20" height="100%"/>
-										<s:ToggleButton skinClass="skins.Skin_ToggleButton"/>
-										<s:BitmapImage source="@Embed('../assets/images/split.png')" height="100%" />
-										<s:VGroup width="100%" height="100%">
-											<s:Label id="nameLabel" text="productName" fontWeight="bold" color="0x4A4A4A"
-													 top="5" left="5" right="5" />
-											<s:Label y="20" id="phoneLabel" text="productDesc" color="0x858585"
-													 top="25" bottom="5" left="5" right="5" />
-										</s:VGroup>
-									</s:HGroup>
-								</s:BorderContainer>
-							</s:ItemRenderer>
-						</fx:Component>
+							<fx:Component>
+								<components:WAS_IconItemRenderer itemClick="was_iconitemrenderer_itemClickHandler(event)"
+							>
+									<fx:Script>
+										<![CDATA[
+											import mx.core.FlexGlobals;
+											import mx.events.ItemClickEvent;
+											
+											import views.AuditsDetailView;
+											import views.ViewBase;
+											
+											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
+											{
+//												trace(event.item);
+												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView);
+											}
+											
+										]]>
+									</fx:Script>
+								</components:WAS_IconItemRenderer>
+</fx:Component>
 						</s:itemRenderer>
 						<s:dataProvider>
 							<s:ArrayList>
-								<fx:Object productIcon="" productName="Flex SDK" 
-										   productDesc="A highly productive, free, open source framework."/>
-								<fx:Object productIcon="" productName="Flash Builder" 
-										   productDesc="Designed to help developers rapidly develop RIAs."/>
-								<fx:Object productIcon="" productName="Flash Catalyst" 
-										   productDesc="An approachable new interaction design tool."/>
-								<fx:Object productIcon="" productName="Flex SDK" 
-										   productDesc="A highly productive, free, open source framework."/>
-								<fx:Object productIcon="" productName="Flash Builder" 
-										   productDesc="Designed to help developers rapidly develop RIAs."/>
-								<fx:Object productIcon="" productName="Flash Catalyst" 
-										   productDesc="An approachable new interaction design tool."/>
+								<fx:Object productIcon="" productName="0303-Camden Motors" 
+										   productDesc="Inspect all documents."
+										   productSchedule="Schedule for:05/07/2013"
+										   productNumber="62"
+										   productAppendix="Vehicles"
+										   />
+								<fx:Object productIcon="" productName="8900-Iuton Cars Ltd" 
+										   productDesc="Check vehicles also in the underground."
+										   productSchedule="Schedule for:08/07/2013"
+										   productNumber="12"
+										   productAppendix="Vehicles"
+										   />
 							</s:ArrayList>
 						</s:dataProvider>
 					</s:List>

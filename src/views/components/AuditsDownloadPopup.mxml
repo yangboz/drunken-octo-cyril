@@ -11,7 +11,11 @@
 		<![CDATA[
 			protected function cancel_btn_click_handler(event:MouseEvent):void
 			{
-				
+				this.close();
+			}
+			protected function download_btn_click_handler(event:MouseEvent):void
+			{
+				this.close();
 			}
 		]]>
 	</fx:Script>
@@ -20,21 +24,24 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:BorderContainer width="565" height="332" backgroundImage="@Embed('../../assets/images/pop-bg1.png')" borderAlpha="0">
-		<s:VGroup gap="60" paddingLeft="20" paddingTop="25" horizontalAlign="left" verticalAlign="middle">
-			<s:Image source="@Embed('../../assets/images/logo.png')"/>
-			<s:RichText color="0xFFFFFF"
-						horizontalCenter="0" verticalCenter="0">
+		<s:VGroup gap="30" paddingLeft="20" paddingTop="25" horizontalAlign="left" verticalAlign="middle">
+			<s:HGroup horizontalAlign="center" width="100%">
+				<s:Image source="@Embed('../../assets/images/logo2.png')"/>
+			</s:HGroup>
+			<s:RichText horizontalCenter="0" verticalCenter="0">
 				<s:textFlow>
 					<s:TextFlow>
-						<s:p fontWeight="bold">Download Audits Request: </s:p>
-						<s:p>You are about to download the selected audit(s).</s:p>
-						<s:p>Please confirm or cancel this action.</s:p>
+						<s:p fontWeight="bold" color="0x004C89">Download Audits Request: </s:p>
+						<s:p/>
+						<s:p color="0x5486AE">You are about to download the selected audit(s).</s:p>
+						<s:p color="0x5486AE">Please confirm or cancel this action.</s:p>
 					</s:TextFlow>
 				</s:textFlow>
 			</s:RichText>
-			<s:HGroup width="100%"  horizontalAlign="center" verticalAlign="middle" gap="30">
+			<s:HGroup width="100%"  horizontalAlign="center" verticalAlign="middle" paddingLeft="20" paddingRight="20">
 				<s:Button label="CANCEL" skinClass="skins.Skin_NormalButton" buttonMode="true" click="cancel_btn_click_handler(event)"/>
-				<s:Button label="DOWNLOAD" skinClass="skins.Skin_NormalButton" buttonMode="true" click="cancel_btn_click_handler(event)"/>
+				<s:Spacer width="75" height="100%"/>
+				<s:Button label="DOWNLOAD" skinClass="skins.Skin_NormalButton" buttonMode="true" click="download_btn_click_handler(event)"/>
 			</s:HGroup>
 		</s:VGroup>
 	</s:BorderContainer>
