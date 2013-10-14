@@ -42,6 +42,22 @@
 				this.navigator.pushView(AuditsView);		
 			}
 			
+			protected function back_btn_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.backKeyUpHandler();
+			}
+			protected function detail_btn_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.pushView(AuditsDetailView);
+			}
+			protected function vehicle_btn_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.pushView(VehicleListView);
+			}
+			protected function search_btn_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.pushView(VehicleSearchView);
+			}
 		]]>
 	</fx:Script>
 	
@@ -81,55 +97,30 @@
 					</s:HGroup>
 				</s:BorderContainer>
 				<s:VGroup paddingTop="8" paddingLeft="100" paddingRight="100" verticalAlign="middle" width="1251" height="500">
-					<s:List width="100%"
-							height="100%"
-							alternatingItemColors="0xE3E3E3"
-							contentBackgroundColor="0xF9F9F9"
-							downColor="0x70B2EE"
-							selectionColor="0x70B2EE"
-							labelField="productName"
-							>
-						<s:itemRenderer>
-							<fx:Component>
-								<components:IconItemRenderer_AuditListView itemClick="was_iconitemrenderer_itemClickHandler(event)"
-																 >
-									<fx:Script>
-										<![CDATA[
-											import mx.core.FlexGlobals;
-											import mx.events.ItemClickEvent;
-											
-											import views.AuditsDetailView;
-											import views.ViewBase;
-											
-											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
-											{
-												//												trace(event.item);
-												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
-											}
-											
-										]]>
-									</fx:Script>
-								</components:IconItemRenderer_AuditListView>
-							</fx:Component>
-						</s:itemRenderer>
-						<s:dataProvider>
-							<s:ArrayList>
-								<fx:Object productIcon="" productName="0303-Camden Motors" 
-										   productDesc="Inspect all documents."
-										   productSchedule="Schedule for:05/07/2013"
-										   productNumber="62"
-										   productAppendix="Vehicles"
-										   />
-							</s:ArrayList>
-						</s:dataProvider>
-					</s:List>
+					<s:BorderContainer width="1140" height="396" backgroundImage="@Embed('../assets/images/table-bg3.png')" borderAlpha="0">
+					</s:BorderContainer>
 				</s:VGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
-					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
-						<s:Button icon="@Embed('../assets/images/icon-avilable_audits.png')" 
-								  label="  Availble Audits" skinClass="skins.Skin_TransparentButton"
-								  click="audits_btn_clickHandler(event)"
+					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="27" height="100%">
+						<s:Button icon="@Embed('../assets/images/icon-back.png')" 
+								  label="  BACK" skinClass="skins.Skin_TransparentButton"
 								  buttonMode="true"
+								  click="back_btn_clickHandler(event)"
+								  />
+						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
+						<s:Button icon="@Embed('../assets/images/icon-search.png')" 
+								  label="  Audit Detail" skinClass="skins.Skin_TransparentButton"
+								  buttonMode="true" click="detail_btn_clickHandler(event)"
+								  />
+						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
+						<s:Button icon="@Embed('../assets/images/icon-list.png')" 
+								  label="  Search" skinClass="skins.Skin_TransparentButton"
+								  buttonMode="true" click="search_btn_clickHandler(event)"
+								  />
+						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
+						<s:Button icon="@Embed('../assets/images/icon-list.png')" 
+								  label="  Vehicle List" skinClass="skins.Skin_TransparentButton"
+								  buttonMode="true" click="vehicle_btn_clickHandler(event)"
 								  />
 					</s:HGroup>
 				</s:BorderContainer>
