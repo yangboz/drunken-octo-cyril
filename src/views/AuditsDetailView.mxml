@@ -57,6 +57,11 @@
 				this.navigator.pushView(VehicleListView);
 			}
 			
+			protected function search_btn_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.pushView(VehicleSearchView);
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -92,26 +97,58 @@
 								  />
 					</s:HGroup>
 				</s:BorderContainer>
-				<s:HGroup width="100%" height="100%" paddingLeft="38" paddingRight="38">
-					<s:BorderContainer width="1251" height="500" backgroundImage="@Embed('../assets/images/table-bg1.png')" borderAlpha="0">
-						<s:VGroup width="100%" height="100%">
+				<s:HGroup width="100%" height="100%" paddingLeft="138" paddingRight="138">
+					<s:VGroup width="100%" height="100%" gap="30">
+						<s:VGroup width="100%" height="100%" gap="20">
+							<s:Spacer width="100%"/>
 							<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontWeight="bold"
 									 text="{data.productName}" fontSize="14"/>
 							<s:Label text="{data.productSchedule}"/>
-							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
-									 text="VEHICLE COUNT" fontSize="14"/>
-							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
-									 text="Inspected:" fontSize="12"/>
-							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
-									 text="Other Outcomes:" fontSize="12"/>
-							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
-									 text="In Progress:" fontSize="12"/>
-							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
-									 text="Not Audited:        {data.productName}" fontSize="12"/>
-							<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontWeight="bold"
-									 text="TOTAL" fontSize="14"/>
 						</s:VGroup>
-					</s:BorderContainer>
+						<s:BorderContainer width="1251" height="500" backgroundImage="@Embed('../assets/images/table-bg1.png')" borderAlpha="0">
+							<s:VGroup width="100%" height="100%" gap="60" paddingLeft="20" paddingTop="35" paddingRight="20">
+								<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+										 text="VEHICLE COUNT  {data.inspectedNumber}" fontSize="14"/>
+								<s:HGroup width="100%" verticalAlign="middle">
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="Inspected:" fontSize="12"/>
+									<s:Spacer width="100%"/>
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="{data.inspectedNumber}" fontSize="14"/>
+								</s:HGroup>
+								<s:HGroup width="100%" verticalAlign="middle">
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="Other Outcomes:" fontSize="12"/>
+									<s:Spacer width="100%"/>
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="{data.otherOutcome}" fontSize="14"/>
+								</s:HGroup>
+								<s:HGroup width="100%" verticalAlign="middle">
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="In Progress:" fontSize="12"/>
+									<s:Spacer width="100%"/>
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="{data.inProgressNumber}" fontSize="14"/>
+								</s:HGroup>
+								<s:HGroup width="100%" verticalAlign="middle">
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="Not Audited:" fontSize="12"/>
+									<s:Spacer width="100%"/>
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="{data.notAuditedNumber}" fontSize="14"/>
+								</s:HGroup>
+								<s:Spacer width="100%"/>
+								<s:HGroup width="100%" verticalAlign="middle">
+									<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontWeight="bold"
+											 text="TOTAL" fontSize="14"/>
+									<s:Spacer width="100%"/>
+									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+											 text="{data.productNumber}" fontSize="14"/>
+								</s:HGroup>
+								
+							</s:VGroup>
+						</s:BorderContainer>
+					</s:VGroup>
 				</s:HGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
@@ -123,7 +160,7 @@
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-search.png')" 
 								  label="  Search" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" click="search_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-list.png')" 

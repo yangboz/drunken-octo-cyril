@@ -117,7 +117,7 @@
 											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
 											{
 												//												trace(event.item);
-												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView);
+												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
 											}
 											
 										]]>
@@ -139,20 +139,20 @@
 				</s:VGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
-						<s:Button icon="@Embed('../assets/images/icon-avilable_audits.png')" 
-								  label="  Back" skinClass="skins.Skin_TransparentButton"
+						<s:Button icon="@Embed('../assets/images/icon-back.png')" 
+								  label="  BACK" skinClass="skins.Skin_TransparentButton"
+								  buttonMode="true"
 								  click="back_btn_clickHandler(event)"
-								  buttonMode="true"
 								  />
-						<s:Button icon="@Embed('../assets/images/icon-avilable_audits.png')" 
+						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
+						<s:Button icon="@Embed('../assets/images/icon-search.png')" 
 								  label="  Audit Detail" skinClass="skins.Skin_TransparentButton"
-								  click="detail_btn_clickHandler(event)"
-								  buttonMode="true"
+								  buttonMode="true" click="detail_btn_clickHandler(event)"
 								  />
-						<s:Button icon="@Embed('../assets/images/icon-avilable_audits.png')" 
+						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
+						<s:Button icon="@Embed('../assets/images/icon-list.png')" 
 								  label="  Search" skinClass="skins.Skin_TransparentButton"
-								  click="search_btn_clickHandler(event)"
-								  buttonMode="true"
+								  buttonMode="true" click="search_btn_clickHandler(event)"
 								  />
 					</s:HGroup>
 				</s:BorderContainer>

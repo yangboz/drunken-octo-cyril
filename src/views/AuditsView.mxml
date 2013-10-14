@@ -101,7 +101,7 @@
 											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
 											{
 //												trace(event.item);
-												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView);
+												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
 											}
 											
 										]]>
@@ -116,12 +116,20 @@
 										   productSchedule="Schedule for:05/07/2013"
 										   productNumber="62"
 										   productAppendix="Vehicles"
+										   inspectedNumber="0"
+										   otherOutcome="0"
+										   inProgressNumber="0"
+										   notAuditedNumber="62"
 										   />
 								<fx:Object productIcon="" productName="8900-Iuton Cars Ltd" 
 										   productDesc="Check vehicles also in the underground."
 										   productSchedule="Schedule for:08/07/2013"
 										   productNumber="12"
 										   productAppendix="Vehicles"
+										   inspectedNumber="0"
+										   otherOutcome="0"
+										   inProgressNumber="0"
+										   notAuditedNumber="62"
 										   />
 							</s:ArrayList>
 						</s:dataProvider>
