@@ -56,9 +56,9 @@
 			  paddingTop="10"
 			  >-->
 			
-		<s:BorderContainer width="1265" height="616" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
+		<s:BorderContainer width="1265" height="640" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
 			
-			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58">
+			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58" paddingLeft="5" paddingRight="5">
 				<s:BorderContainer id="actionBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/actionBar-bg.png')" borderAlpha="0">
 					<s:HGroup horizontalAlign="left" verticalAlign="middle" height="100%" paddingLeft="150" paddingRight="10">
 						<s:Button icon="@Embed('../assets/images/icon-select-gray.png')" 

@@ -17,6 +17,7 @@
 			
 			import views.components.AuditsDownloadPopup;
 //			import mx.resources.ResourceManager;
+			public var detailInfo:Object;
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -51,6 +52,11 @@
 				this.navigator.backKeyUpHandler();				
 			}
 			
+			protected function vehicle_btn_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.pushView(VehicleListView);
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -65,9 +71,9 @@
 			  paddingTop="10"
 			  >-->
 			
-		<s:BorderContainer width="1265" height="616" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
+		<s:BorderContainer width="1265" height="640" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
 			
-			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58">
+			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58" paddingLeft="5" paddingRight="5">
 				<s:BorderContainer id="actionBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/actionBar-bg.png')" borderAlpha="0">
 					<s:HGroup horizontalAlign="left" verticalAlign="middle" height="100%" paddingLeft="150" paddingRight="10">
 						<s:Button icon="@Embed('../assets/images/icon-sync.png')" 
@@ -86,8 +92,27 @@
 								  />
 					</s:HGroup>
 				</s:BorderContainer>
-				<s:BorderContainer width="1251" height="500" backgroundImage="@Embed('../assets/images/table-bg1.png')" borderAlpha="0">
-				</s:BorderContainer>
+				<s:HGroup width="100%" height="100%" paddingLeft="38" paddingRight="38">
+					<s:BorderContainer width="1251" height="500" backgroundImage="@Embed('../assets/images/table-bg1.png')" borderAlpha="0">
+						<s:VGroup width="100%" height="100%">
+							<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontWeight="bold"
+									 text="{data.productName}" fontSize="14"/>
+							<s:Label text="{data.productSchedule}"/>
+							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+									 text="VEHICLE COUNT" fontSize="14"/>
+							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+									 text="Inspected:" fontSize="12"/>
+							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+									 text="Other Outcomes:" fontSize="12"/>
+							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+									 text="In Progress:" fontSize="12"/>
+							<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
+									 text="Not Audited:        {data.productName}" fontSize="12"/>
+							<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontWeight="bold"
+									 text="TOTAL" fontSize="14"/>
+						</s:VGroup>
+					</s:BorderContainer>
+				</s:HGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
 						<s:Button icon="@Embed('../assets/images/icon-back.png')" 
@@ -103,7 +128,7 @@
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-list.png')" 
 								  label="  Vehicle List" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" click="vehicle_btn_clickHandler(event)"
 								  />
 					</s:HGroup>
 				</s:BorderContainer>
