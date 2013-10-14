@@ -12,6 +12,8 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import flash.events.MouseEvent;
+			
 			import mx.events.FlexEvent;
 			import mx.managers.PopUpManager;
 			
@@ -76,19 +78,19 @@
 					<s:HGroup horizontalAlign="left" verticalAlign="middle" height="100%" paddingLeft="150" paddingRight="10">
 						<s:Button icon="@Embed('../assets/images/arrow-down.PNG')" 
 								  iconPlacement="right"
-								  label=" Status" skinClass="skins.Skin_TransparentButton"
+								  label=" Status" skinClass="skins.Skin_TransparentButton_IconRight"
 								  buttonMode="true"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/arrow-down.PNG')" 
 								  iconPlacement="right"
-								  label="Incomplete" skinClass="skins.Skin_TransparentButton"
+								  label="Incomplete" skinClass="skins.Skin_TransparentButton_IconRight"
 								  buttonMode="true"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Spacer width="300" height="100%"/>
 						<s:Button icon="@Embed('../assets/images/icon-filter.PNG')" 
-								  label="Clear filter" skinClass="skins.Skin_TransparentButton"
+								  label="  Clear filter" skinClass="skins.Skin_TransparentButton"
 								  buttonMode="true"
 								  />
 					</s:HGroup>
@@ -104,34 +106,59 @@
 							>
 						<s:itemRenderer>
 							<fx:Component>
-								<components:WAS_IconItemRenderer itemClick="was_iconitemrenderer_itemClickHandler(event)"
+								<components:IconItemRenderer_VehicleListView 
+									itemClick="was_iconitemrenderer_itemClickHandler(event)"
+								    itemIconClick="was_itemIconClickHandler(event)"
 																 >
 									<fx:Script>
 										<![CDATA[
+											import views.components.VehicleSummaryPopup;
 											import mx.core.FlexGlobals;
 											import mx.events.ItemClickEvent;
+											import flash.events.MouseEvent;
+											import mx.managers.PopUpManager;
 											
 											import views.AuditsDetailView;
+											import views.VehicleInspectView;
 											import views.ViewBase;
 											
 											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
 											{
 												//												trace(event.item);
-												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
+												FlexGlobals.topLevelApplication.navigator.pushView(VehicleInspectView,event.item);
+											}
+											
+											protected function was_itemIconClickHandler(event:ItemClickEvent):void
+											{
+//												FlexGlobals.topLevelApplication.navigator.pushView(VehicleInspectView,event.item);
+												var menuPopup:VehicleSummaryPopup = new VehicleSummaryPopup();
+												menuPopup.open(this, true);
+												menuPopup.data = event.item;
+												PopUpManager.centerPopUp(menuPopup);
 											}
 											
 										]]>
 									</fx:Script>
-								</components:WAS_IconItemRenderer>
+								</components:IconItemRenderer_VehicleListView>
 							</fx:Component>
 						</s:itemRenderer>
 						<s:dataProvider>
 							<s:ArrayList>
-								<fx:Object productIcon="" productName="0303-Camden Motors" 
-										   productDesc="Inspect all documents."
-										   productSchedule="Schedule for:05/07/2013"
-										   productNumber="62"
-										   productAppendix="Vehicles"
+								<fx:Object productIcon="" productSerial="W0LF7AHA6BV643875" 
+										   productDesc="ZAFIR TOUREE SE"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="T5LF7AHA6EV643875" 
+										   productDesc="ADAM JAM"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="E1LF7AHE6BV643875" 
+										   productDesc="ASTRA VXR"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="G2LF7AEA6BV643875" 
+										   productDesc="CORSA SRI"
+										   productStatus="Not Audited"
 										   />
 							</s:ArrayList>
 						</s:dataProvider>

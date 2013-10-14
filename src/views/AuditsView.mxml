@@ -88,7 +88,7 @@
 							>
 						<s:itemRenderer>
 							<fx:Component>
-								<components:WAS_IconItemRenderer itemClick="was_iconitemrenderer_itemClickHandler(event)"
+								<components:IconItemRenderer_AuditListView itemClick="was_iconitemrenderer_itemClickHandler(event)"
 							>
 									<fx:Script>
 										<![CDATA[
@@ -106,7 +106,7 @@
 											
 										]]>
 									</fx:Script>
-								</components:WAS_IconItemRenderer>
+								</components:IconItemRenderer_AuditListView>
 </fx:Component>
 						</s:itemRenderer>
 						<s:dataProvider>
