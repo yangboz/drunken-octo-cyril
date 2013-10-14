@@ -129,7 +129,7 @@
 										   inspectedNumber="0"
 										   otherOutcome="0"
 										   inProgressNumber="0"
-										   notAuditedNumber="62"
+										   notAuditedNumber="12"
 										   />
 							</s:ArrayList>
 						</s:dataProvider>

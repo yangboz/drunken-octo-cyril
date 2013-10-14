@@ -12,6 +12,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import views.components.AuditsTransmitPopup;
 			import mx.events.FlexEvent;
 			import mx.managers.PopUpManager;
 			
@@ -62,6 +63,18 @@
 				this.navigator.pushView(VehicleSearchView);
 			}
 			
+			protected function transmit_btn_clickHandler(event:MouseEvent):void
+			{
+				var transmitPopup:AuditsTransmitPopup = new AuditsTransmitPopup();
+				transmitPopup.open(this, true);
+				PopUpManager.centerPopUp(transmitPopup);
+			}
+			
+			protected function sync_btn_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -83,12 +96,12 @@
 					<s:HGroup horizontalAlign="left" verticalAlign="middle" height="100%" paddingLeft="150" paddingRight="10">
 						<s:Button icon="@Embed('../assets/images/icon-sync.png')" 
 								  label="Sync Audit" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" click="sync_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/transmit.png')" 
 								  label="Transmit" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" click="transmit_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-dealer.png')" 
@@ -105,10 +118,10 @@
 									 text="{data.productName}" fontSize="14"/>
 							<s:Label text="{data.productSchedule}"/>
 						</s:VGroup>
-						<s:BorderContainer width="1251" height="500" backgroundImage="@Embed('../assets/images/table-bg1.png')" borderAlpha="0">
-							<s:VGroup width="100%" height="100%" gap="60" paddingLeft="20" paddingTop="35" paddingRight="20">
+						<s:BorderContainer width="1140" height="289" backgroundImage="@Embed('../assets/images/table-bg1.png')" borderAlpha="0">
+							<s:VGroup width="100%" height="100%" gap="27" paddingLeft="20" paddingTop="20" paddingRight="150">
 								<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
-										 text="VEHICLE COUNT  {data.inspectedNumber}" fontSize="14"/>
+										 text="VEHICLE COUNT" fontSize="14"/>
 								<s:HGroup width="100%" verticalAlign="middle">
 									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
 											 text="Inspected:" fontSize="12"/>
@@ -150,6 +163,7 @@
 						</s:BorderContainer>
 					</s:VGroup>
 				</s:HGroup>
+				<s:Spacer width="100%" height="111"/>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
 						<s:Button icon="@Embed('../assets/images/icon-back.png')" 
