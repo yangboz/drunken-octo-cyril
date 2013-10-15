@@ -7,7 +7,7 @@
 		backgroundAlpha="0"
 	    actionBarVisible="true"
 		xmlns:views="views.*"
-		xmlns:containers="com.iwobanas.containers.*"
+		xmlns:container="com.custardbelly.container.*"
 		>
 	
 	<fx:Script>
@@ -64,35 +64,35 @@
 			  paddingRight="10"
 			  paddingTop="10"
 			  >-->
-			
+	
 		<s:BorderContainer width="1265" height="640" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
 			
-			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58" paddingLeft="5" paddingRight="5">
-				<s:BorderContainer id="actionBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/actionBar-bg.png')" borderAlpha="0">
-					<s:HGroup horizontalAlign="left" verticalAlign="middle" height="100%" paddingLeft="150" paddingRight="10">
-						<s:Button icon="@Embed('../assets/images/arrow-down.PNG')" 
-								  iconPlacement="right"
-								  label=" Status" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
-								  />
-						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Button icon="@Embed('../assets/images/arrow-down.PNG')" 
-								  iconPlacement="right"
-								  label="Incomplete" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
-								  />
-						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Spacer width="300" height="100%"/>
-						<s:Button icon="@Embed('../assets/images/icon-filter.PNG')" 
-								  label="Clear filter" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
-								  />
-					</s:HGroup>
-				</s:BorderContainer>
-				<s:VGroup paddingTop="8" paddingLeft="100" paddingRight="100" verticalAlign="middle" width="1251" height="500">
-					<s:BorderContainer width="1140" height="396" backgroundImage="@Embed('../assets/images/table-bg3.png')" borderAlpha="0">
+			<s:VGroup paddingTop="30" verticalAlign="top" width="1251" height="58" paddingLeft="30" >
+				<s:HGroup horizontalAlign="left">
+					<s:Button label="Inspect"
+							  enabled="{viewstack.selectedChild != child1}"
+							  click="{viewstack.selectedChild = child1}" 
+							  />
+					<s:Button label="Other Outcome"
+							  enabled="{viewstack.selectedChild != child2}"
+							  click="{viewstack.selectedChild = child2}" 
+							  />
+					<s:Button label="Pictures"
+							  enabled="{viewstack.selectedChild != child3}"
+							  click="{viewstack.selectedChild = child3}" 
+							  />
+				</s:HGroup>
+				<container:CBViewStack id="viewstack" 
+									   width="1265" height="640" 
+									   borderAlpha="0" borderVisible="false"
+									   skinClass="com.custardbelly.skin.CBScrollableSkin">
+					<s:BorderContainer id="child1" width="1140" height="396" backgroundImage="@Embed('../assets/images/table-bg1.png')" borderAlpha="0">
 					</s:BorderContainer>
-				</s:VGroup>
+					<s:BorderContainer id="child2" width="1140" height="396" backgroundImage="@Embed('../assets/images/table-bg2.png')" borderAlpha="0">
+					</s:BorderContainer>
+					<s:BorderContainer id="child3" width="1140" height="396" backgroundImage="@Embed('../assets/images/table-bg3.png')" borderAlpha="0">
+					</s:BorderContainer>
+				</container:CBViewStack>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="27" height="100%">
 						<s:Button icon="@Embed('../assets/images/icon-back.png')" 
@@ -137,7 +137,7 @@
 					horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
-					<s:span fontWeight="bold">Vehicle Inspection -{data_vehicle.productSerial}</s:span>
+					<s:span fontWeight="bold">Vehicle Inspection -</s:span>{data_vehicle.productSerial}
 				</s:TextFlow>
 			</s:textFlow>
 		</s:RichText>
