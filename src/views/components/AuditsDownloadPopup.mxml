@@ -9,6 +9,10 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import views.AuditsListView;
+			
+			//
+			public var data_displayed:Object;
 			protected function cancel_btn_click_handler(event:MouseEvent):void
 			{
 				this.close();
@@ -16,6 +20,9 @@
 			protected function download_btn_click_handler(event:MouseEvent):void
 			{
 				this.close();
+				//
+				AuditsListView.data_auditsList.addItem(data_displayed);
+//				FlexGlobals.topLevelApplication.navigator.pushView();
 			}
 		]]>
 	</fx:Script>

@@ -9,6 +9,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.managers.PopUpManager;
 			protected function cancel_btn_click_handler(event:MouseEvent):void
 			{
 				this.close();
@@ -16,6 +17,10 @@
 			protected function proceed_btn_click_handler(event:MouseEvent):void
 			{
 				this.close();
+				//Display transmit results popup
+				var menuPopup:AuditsTransmitResultPopup = new AuditsTransmitResultPopup();
+				menuPopup.open(this, true);
+				PopUpManager.centerPopUp(menuPopup);
 			}
 		]]>
 	</fx:Script>

@@ -9,7 +9,7 @@
 	<fx:Script>
 		<![CDATA[
 			[Bindable]
-			public var data:Object;
+			public var data:Object;//data for displaying.
 			
 			protected function cancel_btn_click_handler(event:MouseEvent):void
 			{
@@ -18,6 +18,7 @@
 			protected function proceed_btn_click_handler(event:MouseEvent):void
 			{
 				this.close();
+				//Display results.
 			}
 		]]>
 	</fx:Script>
@@ -30,71 +31,71 @@
 					   borderVisible="false">
 		<s:VGroup gap="30" paddingLeft="35" horizontalAlign="center" paddingTop="25" verticalAlign="middle">
 			<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontSize="14" fontWeight="bold"
-					 text="data.productNumber"/>
+					 text="{data.productSerial}"/>
 			<s:BorderContainer width="414" height="242"
 							   backgroundImage="@Embed('../../assets/images/table-bg2.PNG')"
 							   borderVisible="false">
-				<s:VGroup gap="10" horizontalAlign="center" paddingTop="7" verticalAlign="middle">
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontSize="14"
-							 fontWeight="bold" text=""/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontSize="14"
-							 fontWeight="bold" text="{data.productNumber}"/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontSize="14"
-							 fontWeight="bold" text="{data.productNumber}"/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" color="0x5C5C5C" fontSize="14" fontWeight="bold"
-							 text="{data.productNumber}"/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" color="0x5C5C5C" fontSize="14" fontWeight="bold"
-							 text="{data.productNumber}"/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" color="0x5C5C5C" fontSize="14" fontWeight="bold"
-							 text="{data.productNumber}"/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" color="0x5C5C5C" fontSize="14" fontWeight="bold"
-							 text="{data.productNumber}"/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" color="0x5C5C5C" fontSize="14" fontWeight="bold"
-							 text="{data.productNumber}"/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" color="0x5C5C5C" fontSize="14" fontWeight="bold"
-							 text="{data.productNumber}"/>
-				</s:HGroup>
-				<s:HGroup width="100%" verticalAlign="middle">
-					<s:Label left="5" color="0x4A4A4A" fontSize="14" fontWeight="bold" text="TOTAL"/>
-					<s:Spacer width="100%"/>
-					<s:Label left="5" color="0x5C5C5C" fontSize="14" fontWeight="bold"
-							 text="{data.productNumber}"/>
-				</s:HGroup>
+				<s:VGroup gap="13" horizontalAlign="center" paddingTop="7" verticalAlign="middle">
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="V5:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+								 fontWeight="bold" text=""/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="VIPS:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+								 fontWeight="bold" text="{data.productSerial}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Reg.No:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+								 fontWeight="bold" text="{data.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Plan:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{data.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Description:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{data.productDesc}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Stock No:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{data.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Type:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{data.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Audited By:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{data.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Primary FR:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{data.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Audit Status:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{data.productStatus}"/>
+					</s:HGroup>
 				</s:VGroup>
 			</s:BorderContainer>
 			<s:HGroup width="100%" horizontalAlign="center" paddingLeft="20" paddingRight="20"

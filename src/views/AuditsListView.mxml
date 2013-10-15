@@ -18,6 +18,8 @@
 			import skins.Skin_TransparentButton;
 			
 //			import mx.resources.ResourceManager;
+			[Bindable]
+			public static var data_auditsList:ArrayCollection = new ArrayCollection();
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -97,6 +99,7 @@
 							downColor="0x70B2EE"
 							selectionColor="0x70B2EE"
 							labelField="productName"
+						    dataProvider="{data_auditsList}"
 							>
 						<s:itemRenderer>
 							<fx:Component>
@@ -121,16 +124,16 @@
 								</components:IconItemRenderer_AuditListView>
 							</fx:Component>
 						</s:itemRenderer>
-						<s:dataProvider>
+						<!--<s:dataProvider>
 							<s:ArrayList>
-								<!--<fx:Object productIcon="" productName="0303-Camden Motors" 
+								<fx:Object productIcon="" productName="0303-Camden Motors" 
 										   productDesc="Inspect all documents."
 										   productSchedule="Schedule for:05/07/2013"
 										   productNumber="62"
 										   productAppendix="Vehicles"
-										   />-->
+										   />
 							</s:ArrayList>
-						</s:dataProvider>
+						</s:dataProvider>-->
 					</s:List>
 				</s:VGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">

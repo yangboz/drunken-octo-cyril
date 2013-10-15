@@ -13,11 +13,11 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
-			import mx.managers.PopUpManager;
 			
-			import skins.Skin_TabBar;
 			import skins.Skin_TransparentButton;
 			
+			[Bindable]
+			public var data_vehicle:Object;
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -137,7 +137,7 @@
 					horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
-					<s:span fontWeight="bold">Vehicle Inspection -</s:span>
+					<s:span fontWeight="bold">Vehicle Inspection -{data_vehicle.productSerial}</s:span>
 				</s:TextFlow>
 			</s:textFlow>
 		</s:RichText>
