@@ -13,12 +13,10 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
-			import mx.managers.PopUpManager;
 			
 			import skins.Skin_TabBar;
 			import skins.Skin_TransparentButton;
 			
-			import views.components.AuditsDownloadPopup;
 //			import mx.resources.ResourceManager;
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
@@ -30,11 +28,6 @@
 			protected function view_creationCompleteHandler(event:FlexEvent):void
 			{
 				
-			}
-			
-			override protected function settingButton_clickedHandler(event:MouseEvent):void
-			{
-//				collapsibleSettingPanel.collapseButton.visible = true;
 			}
 			
 			protected function audits_btn_clickHandler(event:MouseEvent):void

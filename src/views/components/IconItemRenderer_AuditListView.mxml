@@ -23,7 +23,7 @@
 			}
 			
 			public function simulateItemIconClick():void {
-				var itemIconClick:MouseEvent = new MouseEvent("itemIconClick", false,
+				var itemIconClick:ItemClickEvent = new ItemClickEvent("itemIconClick", false,
 					false,null,itemIndex,null,data);
 				dispatchEvent(itemIconClick); //Dispatch it.
 			}

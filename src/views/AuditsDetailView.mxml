@@ -31,11 +31,6 @@
 				
 			}
 			
-			override protected function settingButton_clickedHandler(event:MouseEvent):void
-			{
-//				collapsibleSettingPanel.collapseButton.visible = true;
-			}
-			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.pushView(AuditsView);		

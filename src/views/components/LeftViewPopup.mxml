@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SkinnablePopUpContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						   xmlns:s="library://ns.adobe.com/flex/spark"
+						   backgroundAlpha="0"
+						   >
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	
+	<fx:Script>
+		<![CDATA[
+			protected function signout_btn_click_handler(event:MouseEvent):void
+			{
+				this.close();
+			}
+			protected function exit_btn_click_handler(event:MouseEvent):void
+			{
+				this.close();
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:BorderContainer width="281" height="729" backgroundImage="@Embed('../../assets/images/left-bg.png')" borderAlpha="0">
+		<s:VGroup gap="5" paddingLeft="50" paddingTop="290" horizontalAlign="left" verticalAlign="middle">
+			<s:Button label="Sign out" click="signout_btn_click_handler(event)" width="230" height="40" alpha=".0" buttonMode="true"/>
+			<s:Button label="Exit WAS" click="exit_btn_click_handler(event)" width="230" height="40" alpha=".0" buttonMode="true"/>
+		</s:VGroup>
+	</s:BorderContainer>
+</s:SkinnablePopUpContainer>

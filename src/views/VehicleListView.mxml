@@ -32,11 +32,6 @@
 				
 			}
 			
-			override protected function settingButton_clickedHandler(event:MouseEvent):void
-			{
-//				collapsibleSettingPanel.collapseButton.visible = true;
-			}
-			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.pushView(AuditsView);		
@@ -142,6 +137,38 @@
 						</s:itemRenderer>
 						<s:dataProvider>
 							<s:ArrayList>
+								<fx:Object productIcon="" productSerial="W0LF7AHA6BV643875" 
+										   productDesc="ZAFIR TOUREE SE"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="T5LF7AHA6EV643875" 
+										   productDesc="ADAM JAM"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="E1LF7AHE6BV643875" 
+										   productDesc="ASTRA VXR"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="G2LF7AEA6BV643875" 
+										   productDesc="CORSA SRI"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="W0LF7AHA6BV643875" 
+										   productDesc="ZAFIR TOUREE SE"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="T5LF7AHA6EV643875" 
+										   productDesc="ADAM JAM"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="E1LF7AHE6BV643875" 
+										   productDesc="ASTRA VXR"
+										   productStatus="Not Audited"
+										   />
+								<fx:Object productIcon="" productSerial="G2LF7AEA6BV643875" 
+										   productDesc="CORSA SRI"
+										   productStatus="Not Audited"
+										   />
 								<fx:Object productIcon="" productSerial="W0LF7AHA6BV643875" 
 										   productDesc="ZAFIR TOUREE SE"
 										   productStatus="Not Audited"

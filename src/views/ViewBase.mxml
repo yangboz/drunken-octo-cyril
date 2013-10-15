@@ -11,6 +11,9 @@
 	</s:layout>
 	<fx:Script>
 		<![CDATA[
+			import mx.managers.PopUpManager;
+			
+			import views.components.LeftViewPopup;
 			protected function imagebutton_back_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.backKeyUpHandler();				
@@ -18,7 +21,9 @@
 			
 			protected function settingButton_clickedHandler(event:MouseEvent):void
 			{
-				//TO be override.
+				var menuPopup:LeftViewPopup = new LeftViewPopup();
+				menuPopup.open(this, true);
+//				PopUpManager.centerPopUp(menuPopup);
 			}
 			//About chart 
 			
