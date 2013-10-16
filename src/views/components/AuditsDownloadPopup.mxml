@@ -9,6 +9,8 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.core.FlexGlobals;
+			
 			import views.AuditsListView;
 			
 			//
@@ -22,7 +24,8 @@
 				this.close();
 				//
 				AuditsListView.data_auditsList.addItem(data_displayed);
-//				FlexGlobals.topLevelApplication.navigator.pushView();
+				//Navigate to the AuditsListView
+				FlexGlobals.topLevelApplication.navigator.pushView(AuditsListView);
 			}
 		]]>
 	</fx:Script>

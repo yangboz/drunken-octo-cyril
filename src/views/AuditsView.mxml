@@ -36,10 +36,13 @@
 			
 			protected function download_btn_clickHandler(event:MouseEvent):void
 			{
+				if(id_list_avilable_audits.selectedItem==null) return;
 				var menuPopup:AuditsDownloadPopup = new AuditsDownloadPopup();
 				menuPopup.open(this, true);
 				menuPopup.data_displayed = id_list_avilable_audits.selectedItem;
 				PopUpManager.centerPopUp(menuPopup);
+				//Remove selected item.
+				id_list_avilable_audits.dataProvider.removeItemAt(id_list_avilable_audits.selectedIndex);
 			}
 		]]>
 	</fx:Script>
@@ -99,7 +102,7 @@
 											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
 											{
 //												trace(event.item);
-												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
+//												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
 											}
 											
 										]]>
@@ -163,7 +166,7 @@
 					horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
-					<s:span fontWeight="bold">Avilable List</s:span>
+					<s:span fontWeight="bold">Avilable Audits</s:span>
 				</s:TextFlow>
 			</s:textFlow>
 		</s:RichText>

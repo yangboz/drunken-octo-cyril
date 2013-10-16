@@ -67,7 +67,7 @@
 	
 		<s:BorderContainer width="1265" height="640" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
 			
-			<s:VGroup paddingTop="30" verticalAlign="top" width="1251" height="58" paddingLeft="30" >
+			<s:VGroup paddingTop="30" verticalAlign="top" width="1251" height="58" paddingLeft="100" >
 				<s:HGroup horizontalAlign="left">
 					<s:Button label="Inspect"
 							  enabled="{viewstack.selectedChild != child1}"
