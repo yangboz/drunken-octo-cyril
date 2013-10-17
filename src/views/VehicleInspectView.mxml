@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <views:ViewBase xmlns:fx="http://ns.adobe.com/mxml/2009"
-		xmlns:s="library://ns.adobe.com/flex/spark"
-		xmlns:mx="library://ns.adobe.com/flex/mx"
-		xmlns:components="views.components.*"
-	    creationComplete="view_creationCompleteHandler(event)"
-		backgroundAlpha="0"
-	    actionBarVisible="true"
-		xmlns:views="views.*"
-		xmlns:container="com.custardbelly.container.*"
-		>
+				xmlns:s="library://ns.adobe.com/flex/spark"
+				xmlns:mx="library://ns.adobe.com/flex/mx"
+				xmlns:components="views.components.*"
+				xmlns:views="views.*"
+				xmlns:container="com.custardbelly.container.*"
+				actionBarVisible="true" backgroundAlpha="0"
+				creationComplete="view_creationCompleteHandler(event)">
 	
 	<fx:Script>
 		<![CDATA[
@@ -65,61 +63,70 @@
 			  paddingTop="10"
 			  >-->
 	
-		<s:BorderContainer width="1265" height="640" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
+		
 			
-			<s:VGroup paddingTop="30" verticalAlign="top" width="1251" height="58" paddingLeft="100" >
-				<s:HGroup horizontalAlign="left">
-					<s:Button label="Inspect"
+			<s:VGroup width="1251" height="58" paddingLeft="100" paddingTop="2" verticalAlign="top" gap="0">
+				<s:HGroup horizontalAlign="left" gap="1">
+					<s:Button label="Inspect" click="{viewstack.selectedChild = child1}"
 							  enabled="{viewstack.selectedChild != child1}"
-							  click="{viewstack.selectedChild = child1}" 
-							  />
-					<s:Button label="Other Outcome"
+							  skinClass="skins.Skin_VehicleInspectViewButton"/>
+					<s:Button label="Other Outcome" click="{viewstack.selectedChild = child2}"
 							  enabled="{viewstack.selectedChild != child2}"
-							  click="{viewstack.selectedChild = child2}" 
-							  />
-					<s:Button label="Pictures"
+							  skinClass="skins.Skin_VehicleInspectViewButton"/>
+					<s:Button label="Pictures" click="{viewstack.selectedChild = child3}"
 							  enabled="{viewstack.selectedChild != child3}"
-							  click="{viewstack.selectedChild = child3}" 
-							  />
+							  skinClass="skins.Skin_VehicleInspectViewButton"/>
 				</s:HGroup>
-				<container:CBViewStack id="viewstack" 
-									   width="1265" height="640" 
-									   borderAlpha="0" borderVisible="false"
+				<s:BorderContainer width="1265" height="640"
+								   backgroundImage="@Embed('../assets/images/container-bg1.PNG')"
+								   borderAlpha="0">
+				<container:CBViewStack id="viewstack" width="1265" height="640" borderAlpha="0"
+									   borderVisible="false"
 									   skinClass="com.custardbelly.skin.CBScrollableSkin">
-					<s:BorderContainer id="child1" width="1140" height="396" backgroundImage="@Embed('../assets/images/table-bg1.png')" borderAlpha="0">
+					<s:BorderContainer id="child1" width="1140" height="396"
+									   backgroundImage="@Embed('../assets/images/table-bg1.png')"
+									   borderAlpha="0">
 					</s:BorderContainer>
-					<s:BorderContainer id="child2" width="1140" height="396" backgroundImage="@Embed('../assets/images/table-bg2.png')" borderAlpha="0">
+					<s:BorderContainer id="child2" width="1140" height="396"
+									   backgroundImage="@Embed('../assets/images/table-bg2.png')"
+									   borderAlpha="0">
 					</s:BorderContainer>
-					<s:BorderContainer id="child3" width="1140" height="396" backgroundImage="@Embed('../assets/images/table-bg3.png')" borderAlpha="0">
+					<s:BorderContainer id="child3" width="1140" height="396"
+									   backgroundImage="@Embed('../assets/images/table-bg3.png')"
+									   borderAlpha="0">
 					</s:BorderContainer>
 				</container:CBViewStack>
-				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
-					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="27" height="100%">
-						<s:Button icon="@Embed('../assets/images/icon-back.png')" 
-								  label="  BACK" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+				</s:BorderContainer>
+				
+				<s:BorderContainer id="controlBar" width="1251" height="58"
+								   backgroundImage="@Embed('../assets/images/container-bg1.png')"
+								   borderAlpha="0">
+					<s:HGroup height="100%" gap="27" horizontalAlign="center" horizontalCenter="0"
+							  verticalAlign="middle">
+						<s:Button label="  BACK" buttonMode="true"
 								  click="back_btn_clickHandler(event)"
-								  />
-						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Button icon="@Embed('../assets/images/icon-search.png')" 
-								  label="  Audit Detail" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true" click="detail_btn_clickHandler(event)"
-								  />
-						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Button icon="@Embed('../assets/images/icon-list.png')" 
-								  label="  Search" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true" click="search_btn_clickHandler(event)"
-								  />
-						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Button icon="@Embed('../assets/images/icon-list.png')" 
-								  label="  Vehicle List" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true" click="vehicle_btn_clickHandler(event)"
-								  />
+								  icon="@Embed('../assets/images/icon-back.png')"
+								  skinClass="skins.Skin_TransparentButton"/>
+						<s:BitmapImage source="@Embed('../assets/images/split.png')"/>
+						<s:Button label="  Audit Detail" buttonMode="true"
+								  click="detail_btn_clickHandler(event)"
+								  icon="@Embed('../assets/images/icon-search.png')"
+								  skinClass="skins.Skin_TransparentButton"/>
+						<s:BitmapImage source="@Embed('../assets/images/split.png')"/>
+						<s:Button label="  Search" buttonMode="true"
+								  click="search_btn_clickHandler(event)"
+								  icon="@Embed('../assets/images/icon-list.png')"
+								  skinClass="skins.Skin_TransparentButton"/>
+						<s:BitmapImage source="@Embed('../assets/images/split.png')"/>
+						<s:Button label="  Vehicle List" buttonMode="true"
+								  click="vehicle_btn_clickHandler(event)"
+								  icon="@Embed('../assets/images/icon-list.png')"
+								  skinClass="skins.Skin_TransparentButton"/>
 					</s:HGroup>
 				</s:BorderContainer>
 			</s:VGroup>
 			
-		</s:BorderContainer>
+		
 	<!--<containers:CollapsiblePanel id="collapsibleSettingPanel" height="100%" width="100"
 								 skinClass="com.iwobanas.skins.CollapsiblePanelSkin"
 								 title="collapsibleSettingPanel" >
@@ -133,8 +140,7 @@
 	
 	<views:titleContent>
 		
-		<s:RichText color="0xFFFFFF"
-					horizontalCenter="0" verticalCenter="0">
+		<s:RichText color="0xFFFFFF" horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
 					<s:span fontWeight="bold">Vehicle Inspection -</s:span>{data_vehicle.productSerial}
