@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:ViewBase xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:mx="library://ns.adobe.com/flex/mx"
+		xmlns:components="views.components.*"
+		backgroundAlpha="0"
+	    actionBarVisible="true"
+		xmlns:views="views.*"
+		xmlns:containers="com.iwobanas.containers.*"
+		>
+	
+	
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<!--<s:VGroup horizontalCenter="0" verticalCenter="0" horizontalAlign="center" verticalAlign="middle" 
+			  paddingBottom="10"
+			  paddingLeft="10"
+			  paddingRight="10"
+			  paddingTop="10"
+			  >-->
+			
+		<s:BorderContainer width="1265" height="640" backgroundImage="@Embed('../assets/images/takephoto.PNG')" borderAlpha="0">
+			
+			
+		</s:BorderContainer>
+	<!--<containers:CollapsiblePanel id="collapsibleSettingPanel" height="100%" width="100"
+								 skinClass="com.iwobanas.skins.CollapsiblePanelSkin"
+								 title="collapsibleSettingPanel" >
+		
+		<containers:layout>
+			<s:VerticalLayout paddingRight="10" paddingLeft="10" paddingTop="10" paddingBottom="10" />
+		</containers:layout>
+		<s:NumericStepper id="sampleStepper" />
+		
+	</containers:CollapsiblePanel>-->
+	
+	<views:titleContent>
+		
+		<s:RichText color="0xFFFFFF"
+					horizontalCenter="0" verticalCenter="0">
+			<s:textFlow>
+				<s:TextFlow>
+					<s:span fontWeight="bold"></s:span>
+				</s:TextFlow>
+			</s:textFlow>
+		</s:RichText>
+		
+	</views:titleContent>
+	
+</views:ViewBase>

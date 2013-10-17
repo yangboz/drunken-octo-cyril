@@ -49,6 +49,12 @@
 			{
 				this.navigator.pushView(VehicleSearchView);
 			}
+			
+			protected function takephoto_btn_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.pushView(TakePhotoView);
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -65,44 +71,82 @@
 	
 		
 			
-			<s:VGroup width="1251" height="58" paddingLeft="100" paddingTop="2" verticalAlign="top" gap="0">
-				<s:HGroup horizontalAlign="left" gap="1">
-					<s:Button label="Inspect" click="{viewstack.selectedChild = child1}"
+			<s:VGroup width="1251" height="58" gap="0" paddingLeft="50" paddingTop="2" verticalAlign="top">
+				<s:HGroup gap="1" horizontalAlign="left" paddingLeft="50">
+					<s:Button label="Inspect" buttonMode="true"
+							  click="{viewstack.selectedChild = child1}"
 							  enabled="{viewstack.selectedChild != child1}"
 							  skinClass="skins.Skin_VehicleInspectViewButton"/>
-					<s:Button label="Other Outcome" click="{viewstack.selectedChild = child2}"
+					<s:Button label="Other Outcome" buttonMode="true"
+							  click="{viewstack.selectedChild = child2}"
 							  enabled="{viewstack.selectedChild != child2}"
 							  skinClass="skins.Skin_VehicleInspectViewButton"/>
-					<s:Button label="Pictures" click="{viewstack.selectedChild = child3}"
+					<s:Button label="Pictures" buttonMode="true"
+							  click="{viewstack.selectedChild = child3}"
 							  enabled="{viewstack.selectedChild != child3}"
 							  skinClass="skins.Skin_VehicleInspectViewButton"/>
 				</s:HGroup>
-				<s:BorderContainer width="1265" height="640"
+				<s:BorderContainer width="1251" height="500"
 								   backgroundImage="@Embed('../assets/images/container-bg1.PNG')"
 								   borderAlpha="0">
-				<container:CBViewStack id="viewstack" width="1265" height="640" borderAlpha="0"
-									   borderVisible="false"
-									   skinClass="com.custardbelly.skin.CBScrollableSkin">
-					<s:BorderContainer id="child1" width="1140" height="396"
-									   backgroundImage="@Embed('../assets/images/table-bg1.png')"
-									   borderAlpha="0">
-					</s:BorderContainer>
-					<s:BorderContainer id="child2" width="1140" height="396"
-									   backgroundImage="@Embed('../assets/images/table-bg2.png')"
-									   borderAlpha="0">
-					</s:BorderContainer>
-					<s:BorderContainer id="child3" width="1140" height="396"
-									   backgroundImage="@Embed('../assets/images/table-bg3.png')"
-									   borderAlpha="0">
-					</s:BorderContainer>
-				</container:CBViewStack>
+					<s:VGroup width="1251" height="500" gap="0" paddingTop="2" verticalAlign="top">	
+						<container:CBViewStack id="viewstack" width="1265" height="440" borderAlpha="0"
+											   borderVisible="false"
+											   skinClass="com.custardbelly.skin.CBScrollableSkin">
+							<s:BorderContainer id="child1" width="1140" height="316"
+											   borderAlpha="0">
+								<s:VGroup>
+									<s:BorderContainer width="1251" height="58"
+													   backgroundImage="@Embed('../assets/images/actionBar-bg.png')"
+													   borderAlpha="0">
+										<s:HGroup height="100%" horizontalAlign="left" verticalAlign="middle" paddingLeft="100">
+											<s:Button label="  Save" buttonMode="true"
+													  icon="@Embed('../assets/images/icon-save.PNG')"
+													  iconPlacement="right" skinClass="skins.Skin_TransparentButton"/>
+										</s:HGroup>
+									</s:BorderContainer>
+									<s:BorderContainer width="1140" height="396"
+													   backgroundImage="@Embed('../assets/images/table-bg3.png')"
+													   borderAlpha="0">
+									</s:BorderContainer>
+								</s:VGroup>
+								
+							</s:BorderContainer>
+							<s:BorderContainer id="child2" width="1140" height="316"
+											   borderAlpha="0">
+							</s:BorderContainer>
+							<s:BorderContainer id="child3" width="1140" height="316"
+											   borderAlpha="0">
+								<s:VGroup>
+									<s:BorderContainer width="1251" height="58"
+													   backgroundImage="@Embed('../assets/images/actionBar-bg.png')"
+													   borderAlpha="0">
+										<s:HGroup height="100%" horizontalAlign="left" verticalAlign="middle" paddingLeft="100">
+											<s:Button label="  Take Photo" buttonMode="true"
+													  icon="@Embed('../assets/images/icon-photo.png')"
+													  iconPlacement="right" skinClass="skins.Skin_TransparentButton"
+													  click="takephoto_btn_clickHandler(event)"
+													  />
+										</s:HGroup>
+									</s:BorderContainer>
+									<s:HGroup height="100%" horizontalAlign="left" verticalAlign="middle" paddingLeft="100">
+										<s:BitmapImage source="@Embed('../assets/images/car1.png')"/>
+										<s:BitmapImage source="@Embed('../assets/images/car2.png')"/>
+										<s:BitmapImage source="@Embed('../assets/images/car3.png')"/>
+									</s:HGroup>
+								</s:VGroup>
+							</s:BorderContainer>
+						</container:CBViewStack>
+					
+					
+					</s:VGroup>
 				</s:BorderContainer>
 				
 				<s:BorderContainer id="controlBar" width="1251" height="58"
 								   backgroundImage="@Embed('../assets/images/container-bg1.png')"
 								   borderAlpha="0">
-					<s:HGroup height="100%" gap="27" horizontalAlign="center" horizontalCenter="0"
-							  verticalAlign="middle">
+					<s:HGroup height="100%" gap="27" horizontalAlign="center"
+							  horizontalCenter="0" verticalAlign="middle">
 						<s:Button label="  BACK" buttonMode="true"
 								  click="back_btn_clickHandler(event)"
 								  icon="@Embed('../assets/images/icon-back.png')"
@@ -110,12 +154,12 @@
 						<s:BitmapImage source="@Embed('../assets/images/split.png')"/>
 						<s:Button label="  Audit Detail" buttonMode="true"
 								  click="detail_btn_clickHandler(event)"
-								  icon="@Embed('../assets/images/icon-search.png')"
+								  icon="@Embed('../assets/images/icon-home.png')"
 								  skinClass="skins.Skin_TransparentButton"/>
 						<s:BitmapImage source="@Embed('../assets/images/split.png')"/>
 						<s:Button label="  Search" buttonMode="true"
 								  click="search_btn_clickHandler(event)"
-								  icon="@Embed('../assets/images/icon-list.png')"
+								  icon="@Embed('../assets/images/icon-search.png')"
 								  skinClass="skins.Skin_TransparentButton"/>
 						<s:BitmapImage source="@Embed('../assets/images/split.png')"/>
 						<s:Button label="  Vehicle List" buttonMode="true"
@@ -125,7 +169,7 @@
 					</s:HGroup>
 				</s:BorderContainer>
 			</s:VGroup>
-			
+
 		
 	<!--<containers:CollapsiblePanel id="collapsibleSettingPanel" height="100%" width="100"
 								 skinClass="com.iwobanas.skins.CollapsiblePanelSkin"
