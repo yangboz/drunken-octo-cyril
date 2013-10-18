@@ -114,7 +114,7 @@
 							<s:ArrayList>
 								<fx:Object productIcon="" productName="0303-Camden Motors" 
 										   productDesc="Inspect all documents."
-										   productSchedule="Schedule for:05/07/2013"
+										   productSchedule="Schedule for:10/01/2013"
 										   productNumber="62"
 										   productAppendix="Vehicles"
 										   inspectedNumber="0"
@@ -124,13 +124,23 @@
 										   />
 								<fx:Object productIcon="" productName="8900-Iuton Cars Ltd" 
 										   productDesc="Check vehicles also in the underground."
-										   productSchedule="Schedule for:08/07/2013"
+										   productSchedule="Schedule for:10/03/2013"
 										   productNumber="12"
 										   productAppendix="Vehicles"
 										   inspectedNumber="0"
 										   otherOutcome="0"
 										   inProgressNumber="0"
 										   notAuditedNumber="12"
+										   />
+								<fx:Object productIcon="" productName="7356-Spark Cars Ltd" 
+										   productDesc="Check vehicles also in the underground."
+										   productSchedule="Schedule for:10/07/2013"
+										   productNumber="3"
+										   productAppendix="Vehicles"
+										   inspectedNumber="0"
+										   otherOutcome="0"
+										   inProgressNumber="0"
+										   notAuditedNumber="3"
 										   />
 							</s:ArrayList>
 						</s:dataProvider>

@@ -109,7 +109,7 @@
 								  click="back_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Button icon="@Embed('../assets/images/icon-search.png')" 
+						<s:Button icon="@Embed('../assets/images/icon-home.png')" 
 								  label="  Audit Detail" skinClass="skins.Skin_TransparentButton"
 								  buttonMode="true" click="detail_btn_clickHandler(event)"
 								  />

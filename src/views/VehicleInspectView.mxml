@@ -14,8 +14,6 @@
 			
 			import skins.Skin_TransparentButton;
 			
-			[Bindable]
-			public var data_vehicle:Object;
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -71,7 +69,8 @@
 	
 		
 			
-			<s:VGroup width="1251" height="58" gap="0" paddingLeft="50" paddingTop="2" verticalAlign="top">
+			<s:VGroup width="1251" height="58" gap="0" paddingLeft="50" paddingTop="2"
+					  verticalAlign="top">
 				<s:HGroup gap="1" horizontalAlign="left" paddingLeft="50">
 					<s:Button label="Inspect" buttonMode="true"
 							  click="{viewstack.selectedChild = child1}"
@@ -90,19 +89,20 @@
 								   backgroundImage="@Embed('../assets/images/container-bg1.PNG')"
 								   borderAlpha="0">
 					<s:VGroup width="1251" height="500" gap="0" paddingTop="2" verticalAlign="top">	
-						<container:CBViewStack id="viewstack" width="1265" height="440" borderAlpha="0"
-											   borderVisible="false"
+						<container:CBViewStack id="viewstack" width="1265" height="440"
+											   borderAlpha="0" borderVisible="false"
 											   skinClass="com.custardbelly.skin.CBScrollableSkin">
-							<s:BorderContainer id="child1" width="1140" height="316"
-											   borderAlpha="0">
+							<s:BorderContainer id="child1" width="1140" height="316" borderAlpha="0">
 								<s:VGroup>
 									<s:BorderContainer width="1251" height="58"
 													   backgroundImage="@Embed('../assets/images/actionBar-bg.png')"
 													   borderAlpha="0">
-										<s:HGroup height="100%" horizontalAlign="left" verticalAlign="middle" paddingLeft="100">
+										<s:HGroup height="100%" horizontalAlign="left"
+												  paddingLeft="100" verticalAlign="middle">
 											<s:Button label="  Save" buttonMode="true"
 													  icon="@Embed('../assets/images/icon-save.PNG')"
-													  iconPlacement="right" skinClass="skins.Skin_TransparentButton"/>
+													  iconPlacement="right"
+													  skinClass="skins.Skin_TransparentButton"/>
 										</s:HGroup>
 									</s:BorderContainer>
 									<s:BorderContainer width="1140" height="396"
@@ -112,28 +112,65 @@
 								</s:VGroup>
 								
 							</s:BorderContainer>
-							<s:BorderContainer id="child2" width="1140" height="316"
-											   borderAlpha="0">
+							<s:BorderContainer id="child2" width="1140" height="316" borderAlpha="0">
 							</s:BorderContainer>
-							<s:BorderContainer id="child3" width="1140" height="316"
-											   borderAlpha="0">
+							<s:BorderContainer id="child3" width="1140" height="316" borderAlpha="0">
 								<s:VGroup>
 									<s:BorderContainer width="1251" height="58"
 													   backgroundImage="@Embed('../assets/images/actionBar-bg.png')"
 													   borderAlpha="0">
-										<s:HGroup height="100%" horizontalAlign="left" verticalAlign="middle" paddingLeft="100">
+										<s:HGroup height="100%" horizontalAlign="left"
+												  paddingLeft="100" verticalAlign="middle">
 											<s:Button label="  Take Photo" buttonMode="true"
-													  icon="@Embed('../assets/images/icon-photo.png')"
-													  iconPlacement="right" skinClass="skins.Skin_TransparentButton"
 													  click="takephoto_btn_clickHandler(event)"
-													  />
+													  icon="@Embed('../assets/images/icon-photo.png')"
+													  iconPlacement="right"
+													  skinClass="skins.Skin_TransparentButton"/>
 										</s:HGroup>
 									</s:BorderContainer>
-									<s:HGroup height="100%" horizontalAlign="left" verticalAlign="middle" paddingLeft="100">
-										<s:BitmapImage source="@Embed('../assets/images/car1.png')"/>
-										<s:BitmapImage source="@Embed('../assets/images/car2.png')"/>
-										<s:BitmapImage source="@Embed('../assets/images/car3.png')"/>
-									</s:HGroup>
+									<s:List width="100%" horizontalCenter="0" verticalCenter="0">
+										<s:layout>
+											<s:TileLayout horizontalGap="0" requestedColumnCount="3"
+														  requestedRowCount="2" verticalGap="0"/>
+										</s:layout>
+										<s:itemRenderer>
+											<fx:Component>
+												<components:IconItemRenderer_VehicleInspectView itemClick="was_iconitemrenderer_itemClickHandler(event)">
+													<fx:Script>
+														<![CDATA[
+															import views.components.VehicleInspectCarItemPopup;
+															import mx.managers.PopUpManager;
+															import mx.events.ItemClickEvent;
+															
+															import views.AuditsDetailView;
+															import views.ViewBase;
+															
+															protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
+															{
+																var menuPopup:VehicleInspectCarItemPopup = new VehicleInspectCarItemPopup();
+																menuPopup.open(this, true);
+																PopUpManager.centerPopUp(menuPopup);
+															}
+															
+														]]>
+													</fx:Script>
+												</components:IconItemRenderer_VehicleInspectView>
+											</fx:Component>
+										</s:itemRenderer>
+										<s:dataProvider>
+											<s:ArrayList>
+												<fx:Object carDesc="09/08/2013 14:30:00"
+														   carIcon="@Embed('../assets/images/car1.png')"
+														   carImage="@Embed('../assets/images/car4.png')"/>
+												<fx:Object carDesc="09/08/2013 14:30:00"
+														   carIcon="@Embed('../assets/images/car2.png')"
+														   carImage="@Embed('../assets/images/car4.png')"/>
+												<fx:Object carDesc="09/08/2013 14:30:00"
+														   carIcon="@Embed('../assets/images/car3.png')"
+														   carImage="@Embed('../assets/images/car4.png')"/>
+											</s:ArrayList>
+										</s:dataProvider>
+									</s:List>
 								</s:VGroup>
 							</s:BorderContainer>
 						</container:CBViewStack>
@@ -145,8 +182,8 @@
 				<s:BorderContainer id="controlBar" width="1251" height="58"
 								   backgroundImage="@Embed('../assets/images/container-bg1.png')"
 								   borderAlpha="0">
-					<s:HGroup height="100%" gap="27" horizontalAlign="center"
-							  horizontalCenter="0" verticalAlign="middle">
+					<s:HGroup height="100%" gap="27" horizontalAlign="center" horizontalCenter="0"
+							  verticalAlign="middle">
 						<s:Button label="  BACK" buttonMode="true"
 								  click="back_btn_clickHandler(event)"
 								  icon="@Embed('../assets/images/icon-back.png')"
@@ -187,7 +224,7 @@
 		<s:RichText color="0xFFFFFF" horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
-					<s:span fontWeight="bold">Vehicle Inspection -</s:span>{data_vehicle.productSerial}
+					<s:span fontWeight="bold">Vehicle Inspection -</s:span><s:span fontWeight="bold">{data.productSerial}</s:span>
 				</s:TextFlow>
 			</s:textFlow>
 		</s:RichText>
