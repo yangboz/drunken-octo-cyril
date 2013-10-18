@@ -92,7 +92,7 @@
 						<container:CBViewStack id="viewstack" width="1265" height="440"
 											   borderAlpha="0" borderVisible="false"
 											   skinClass="com.custardbelly.skin.CBScrollableSkin">
-							<s:BorderContainer id="child1" width="1140" height="316" borderAlpha="0">
+							<s:BorderContainer id="child1" width="1140" height="440" borderAlpha="0">
 								<s:VGroup>
 									<s:BorderContainer width="1251" height="58"
 													   backgroundImage="@Embed('../assets/images/actionBar-bg.png')"
@@ -108,6 +108,50 @@
 									<s:BorderContainer width="1140" height="396"
 													   backgroundImage="@Embed('../assets/images/table-bg3.png')"
 													   borderAlpha="0">
+										<s:VGroup paddingLeft="150" paddingTop="18" verticalCenter="0" gap="25" height="396">
+											<s:HGroup verticalAlign="middle">
+												<s:Label text="Outcome:" color="0x5E5E5E" fontWeight="bold"/>
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle">
+												<s:Label text="Description:" color="0x5E5E5E" fontWeight="bold"/>
+												<s:Label text=""/>
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle">
+												<s:Label text="Color:" color="0x5E5E5E" fontWeight="bold"/>
+												<s:Label text=""/>
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle">
+												<s:Label text="OSB(inc.VAT):" color="0x5E5E5E" fontWeight="bold"/>
+												<s:Label text=""/>
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle">
+												<s:Label text="Plan:" color="0x5E5E5E" fontWeight="bold"/>
+												<s:Label text=""/>
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle">
+												<s:Label text="Ref No:" color="0x5E5E5E" fontWeight="bold"/>
+												<s:Label text=""/>
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle">
+												<s:Label text="Previous Comment:" color="0x5E5E5E" fontWeight="bold"/>
+												<s:Spacer width="80"/>
+												<s:TextInput width="800" height="50" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="true" />
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle" color="0x5E5E5E" fontWeight="bold">
+												<s:Label text="Reg No:"/>
+												<s:Spacer width="150"/>
+												<s:TextInput width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="true" />
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle" color="0x5E5E5E" fontWeight="bold">
+												<s:Label text="Mileometer:"/>
+												<s:Spacer width="100"/>
+												<s:TextInput width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="true" />
+											</s:HGroup>
+											<s:HGroup verticalAlign="middle" color="0x5E5E5E" fontWeight="bold">
+												<s:Label text="VIPS:"/>
+												<s:Label text=""/>
+											</s:HGroup>
+										</s:VGroup>
 									</s:BorderContainer>
 								</s:VGroup>
 								
@@ -184,10 +228,11 @@
 								   borderAlpha="0">
 					<s:HGroup height="100%" gap="27" horizontalAlign="center" horizontalCenter="0"
 							  verticalAlign="middle">
-						<s:Button label="  BACK" buttonMode="true"
-								  click="back_btn_clickHandler(event)"
-								  icon="@Embed('../assets/images/icon-back.png')"
-								  skinClass="skins.Skin_TransparentButton"/>
+						<s:Button icon="@Embed('../assets/images/icon-avilable_audits.png')" 
+								  label=" Audits List" skinClass="skins.Skin_TransparentButton"
+								  click="audits_btn_clickHandler(event)"
+								  buttonMode="true"
+								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')"/>
 						<s:Button label="  Audit Detail" buttonMode="true"
 								  click="detail_btn_clickHandler(event)"

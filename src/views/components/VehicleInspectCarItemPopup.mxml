@@ -23,6 +23,9 @@
 	<s:BorderContainer width="800" height="600"
 					   backgroundImage="@Embed('../../assets/images/car4.png')"
 					   borderVisible="false">
-		<components:ImageButton icon="@Embed('../../assets/images/close.png')" click="close_btn_click_handler(event)"/>
+		<s:HGroup width="100%" height="100%" horizontalAlign="right" verticalAlign="top" paddingRight="-25" paddingTop="-20">
+			<components:ImageButton skinClass="skins.Skin_CloseButton" click="close_btn_click_handler(event)"/>
+		</s:HGroup>
+		
 	</s:BorderContainer>
 </s:SkinnablePopUpContainer>

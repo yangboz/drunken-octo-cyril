@@ -191,10 +191,10 @@
 				</s:VGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
-						<s:Button icon="@Embed('../assets/images/icon-back.png')" 
-								  label="  BACK" skinClass="skins.Skin_TransparentButton"
+						<s:Button icon="@Embed('../assets/images/icon-avilable_audits.png')" 
+								  label=" Audits List" skinClass="skins.Skin_TransparentButton"
+								  click="audits_btn_clickHandler(event)"
 								  buttonMode="true"
-								  click="back_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-home.png')" 

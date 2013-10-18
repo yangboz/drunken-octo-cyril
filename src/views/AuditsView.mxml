@@ -93,10 +93,8 @@
 							>
 									<fx:Script>
 										<![CDATA[
-											import mx.core.FlexGlobals;
 											import mx.events.ItemClickEvent;
 											
-											import views.AuditsDetailView;
 											import views.ViewBase;
 											
 											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
