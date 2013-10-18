@@ -21,7 +21,7 @@
 			  paddingTop="10"
 			  >-->
 			
-		<s:BorderContainer scaleX=".8" scaleY=".8" width="1265" height="640" backgroundImage="@Embed('../assets/images/takephoto.PNG')" borderAlpha="0">
+		<s:BorderContainer width="1265" height="640" backgroundImage="@Embed('../assets/images/takephoto.PNG')" borderAlpha="0">
 			
 			
 		</s:BorderContainer>

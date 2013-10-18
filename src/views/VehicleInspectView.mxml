@@ -85,30 +85,30 @@
 							  enabled="{viewstack.selectedChild != child3}"
 							  skinClass="skins.Skin_VehicleInspectViewButton"/>
 				</s:HGroup>
-				<s:BorderContainer width="1251" height="500"
+				<s:BorderContainer width="1251" height="550"
 								   backgroundImage="@Embed('../assets/images/container-bg1.PNG')"
 								   borderAlpha="0">
-					<s:VGroup width="1251" height="500" gap="0" paddingTop="2" verticalAlign="top">	
-						<container:CBViewStack id="viewstack" width="1265" height="440"
+					<s:VGroup width="1251" height="550" gap="0" paddingTop="2" verticalAlign="top">	
+						<container:CBViewStack id="viewstack" width="1265" height="520"
 											   borderAlpha="0" borderVisible="false"
 											   skinClass="com.custardbelly.skin.CBScrollableSkin">
-							<s:BorderContainer id="child1" width="1140" height="440" borderAlpha="0">
-								<s:VGroup>
+							<s:BorderContainer id="child1" width="1140" height="600" borderAlpha="0">
+								<s:VGroup width="100%" gap="0">
 									<s:BorderContainer width="1251" height="58"
 													   backgroundImage="@Embed('../assets/images/actionBar-bg.png')"
 													   borderAlpha="0">
 										<s:HGroup height="100%" horizontalAlign="left"
-												  paddingLeft="100" verticalAlign="middle">
+												  paddingLeft="60" verticalAlign="middle">
 											<s:Button label="  Save" buttonMode="true"
 													  icon="@Embed('../assets/images/icon-save.PNG')"
 													  iconPlacement="right"
 													  skinClass="skins.Skin_TransparentButton"/>
 										</s:HGroup>
 									</s:BorderContainer>
-									<s:BorderContainer width="1140" height="396"
+									<s:BorderContainer width="1251" height="396"
 													   backgroundImage="@Embed('../assets/images/table-bg3.png')"
 													   borderAlpha="0">
-										<s:VGroup paddingLeft="150" paddingTop="18" verticalCenter="0" gap="25" height="396">
+										<s:VGroup paddingLeft="100" paddingTop="20" verticalCenter="0" gap="25">
 											<s:HGroup verticalAlign="middle">
 												<s:Label text="Outcome:" color="0x5E5E5E" fontWeight="bold"/>
 											</s:HGroup>
@@ -132,22 +132,28 @@
 												<s:Label text="Ref No:" color="0x5E5E5E" fontWeight="bold"/>
 												<s:Label text=""/>
 											</s:HGroup>
-											<s:HGroup verticalAlign="middle">
-												<s:Label text="Previous Comment:" color="0x5E5E5E" fontWeight="bold"/>
-												<s:Spacer width="80"/>
-												<s:TextInput width="800" height="50" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="true" />
-											</s:HGroup>
-											<s:HGroup verticalAlign="middle" color="0x5E5E5E" fontWeight="bold">
-												<s:Label text="Reg No:"/>
-												<s:Spacer width="150"/>
-												<s:TextInput width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="true" />
-											</s:HGroup>
-											<s:HGroup verticalAlign="middle" color="0x5E5E5E" fontWeight="bold">
-												<s:Label text="Mileometer:"/>
-												<s:Spacer width="100"/>
-												<s:TextInput width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="true" />
-											</s:HGroup>
-											<s:HGroup verticalAlign="middle" color="0x5E5E5E" fontWeight="bold">
+											<s:VGroup paddingTop="-4" verticalAlign="middle">
+												<s:HGroup verticalAlign="middle">
+													<s:Label text="Previous Comment:" color="0x5E5E5E" fontWeight="bold"/>
+													<s:Spacer width="78"/>
+													<s:TextInput paddingTop="-7" width="800" height="46" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+												</s:HGroup>
+											</s:VGroup>	
+											<s:VGroup paddingTop="-8" verticalAlign="middle" gap="15">	
+												<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">
+													<s:Label text="Reg No:"/>
+													<s:Spacer width="167"/>
+													<s:TextInput width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+												</s:HGroup>
+											</s:VGroup>
+											<s:VGroup paddingTop="-12" verticalAlign="middle" gap="15">	
+												<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">
+													<s:Label text="Mileometer:"/>
+													<s:Spacer width="142"/>
+													<s:TextInput width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+												</s:HGroup>
+											</s:VGroup>
+											<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">
 												<s:Label text="VIPS:"/>
 												<s:Label text=""/>
 											</s:HGroup>
@@ -159,7 +165,7 @@
 							<s:BorderContainer id="child2" width="1140" height="316" borderAlpha="0">
 							</s:BorderContainer>
 							<s:BorderContainer id="child3" width="1140" height="316" borderAlpha="0">
-								<s:VGroup>
+								<s:VGroup width="100%" >
 									<s:BorderContainer width="1251" height="58"
 													   backgroundImage="@Embed('../assets/images/actionBar-bg.png')"
 													   borderAlpha="0">
@@ -172,9 +178,9 @@
 													  skinClass="skins.Skin_TransparentButton"/>
 										</s:HGroup>
 									</s:BorderContainer>
-									<s:List width="100%" horizontalCenter="0" verticalCenter="0">
+									<s:List width="100%" horizontalCenter="0" verticalCenter="0" >
 										<s:layout>
-											<s:TileLayout horizontalGap="0" requestedColumnCount="3"
+											<s:TileLayout horizontalGap="0" requestedColumnCount="3" paddingLeft="50"
 														  requestedRowCount="2" verticalGap="0"/>
 										</s:layout>
 										<s:itemRenderer>

@@ -62,9 +62,9 @@
 						   backgroundImage="@Embed('../assets/images/container-bg1.PNG')"
 						   borderAlpha="0">
 			
-			<s:VGroup width="1251" height="58" paddingLeft="5" paddingRight="5" paddingTop="8"
+			<s:VGroup width="100%" paddingLeft="5" paddingRight="5" paddingTop="8"
 					  verticalAlign="top">
-				<s:BorderContainer id="actionBar" width="1251" height="58"
+				<s:BorderContainer width="1251" height="58"
 								   backgroundImage="@Embed('../assets/images/actionBar-bg.png')"
 								   borderAlpha="0">
 					<s:HGroup height="100%" horizontalAlign="left" paddingLeft="150"
@@ -94,21 +94,21 @@
 						</s:TabBar>
 					</s:HGroup>
 				</s:BorderContainer>
-				<s:VGroup width="1251" height="510" horizontalAlign="center" paddingLeft="100"
-						  paddingRight="100" paddingTop="8" verticalAlign="middle">
-					<s:HGroup width="100%" height="100%" horizontalAlign="left" paddingLeft="150"
+				<s:VGroup width="100%" height="510" horizontalAlign="center" paddingLeft="200"
+						  paddingRight="200" verticalAlign="middle">
+					<s:HGroup width="100%" height="100%" horizontalAlign="left"
 							  paddingRight="10" verticalAlign="middle">
-						<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontSize="14"
+						<s:Label color="0x4A4A4A" fontSize="14"
 								 fontWeight="bold" text="Enter Data"/>
-						<s:Spacer width="500" height="100%"/>
+						<s:Spacer width="100%" height="100%"/>
 						<s:Button label="  Search in all audits" buttonMode="true"
 								  icon="@Embed('../assets/images/icon-select-blue.png')"
 								  skinClass="skins.Skin_TransparentButton"/>
 					</s:HGroup>
-					<s:BorderContainer id="controlBar" width="1251" height="58"
+					<s:BorderContainer width="100%" height="58"
 									   backgroundImage="@Embed('../assets/images/txtbox-bg.PNG')"
 									   borderAlpha="0">
-						<s:TextInput width="230" height="32" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
+						<s:TextInput width="100%" height="58" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
 					</s:BorderContainer>
 					<s:BitmapImage source="@Embed('../assets/images/scan.png')"/>
 				</s:VGroup>
