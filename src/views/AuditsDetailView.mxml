@@ -12,6 +12,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.core.FlexGlobals;
 			import mx.events.FlexEvent;
 			import mx.managers.PopUpManager;
 			
@@ -63,7 +64,8 @@
 			protected function transmit_btn_clickHandler(event:MouseEvent):void
 			{
 				var transmitPopup:Popup_AuditsTransmit = new Popup_AuditsTransmit();
-				transmitPopup.open(this, true);
+//				transmitPopup.open(this, true);
+				transmitPopup.open(FlexGlobals.topLevelApplication as DisplayObjectContainer, true);
 				PopUpManager.centerPopUp(transmitPopup);
 			}
 			

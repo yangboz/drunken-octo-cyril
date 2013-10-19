@@ -190,17 +190,19 @@
 												<components:IconItemRenderer_VehicleInspectView itemClick="was_iconitemrenderer_itemClickHandler(event)">
 													<fx:Script>
 														<![CDATA[
-															import views.components.Popup_VehicleInspectCarItem;
-															import mx.managers.PopUpManager;
+															import mx.core.FlexGlobals;
 															import mx.events.ItemClickEvent;
+															import mx.managers.PopUpManager;
 															
 															import views.AuditsDetailView;
 															import views.ViewBase;
+															import views.components.Popup_VehicleInspectCarItem;
 															
 															protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
 															{
 																var menuPopup:Popup_VehicleInspectCarItem = new Popup_VehicleInspectCarItem();
-																menuPopup.open(this, true);
+//																menuPopup.open(this, true);
+																menuPopup.open(FlexGlobals.topLevelApplication as DisplayObjectContainer, true);
 																PopUpManager.centerPopUp(menuPopup);
 															}
 															

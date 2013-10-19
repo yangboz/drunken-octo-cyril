@@ -12,6 +12,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.core.FlexGlobals;
 			import mx.events.FlexEvent;
 			import mx.managers.PopUpManager;
 			
@@ -40,7 +41,8 @@
 			{
 				if(id_list_avilable_audits.selectedItem==null) return;
 				var menuPopup:Popup_AuditsDownload = new Popup_AuditsDownload();
-				menuPopup.open(this, true);
+//				menuPopup.open(this, true);
+				menuPopup.open(FlexGlobals.topLevelApplication as DisplayObjectContainer, true);
 				PopUpManager.centerPopUp(menuPopup);
 				//Set selected item.
 				DataFixture.selectedAuditItem = id_list_avilable_audits.selectedItem;

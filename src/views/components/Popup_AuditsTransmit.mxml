@@ -9,6 +9,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.core.FlexGlobals;
 			import mx.managers.PopUpManager;
 			protected function cancel_btn_click_handler(event:MouseEvent):void
 			{
@@ -19,7 +20,8 @@
 				this.close();
 				//Display transmit results popup
 				var menuPopup:Popup_AuditsTransmitResult = new Popup_AuditsTransmitResult();
-				menuPopup.open(this, true);
+//				menuPopup.open(this, true);
+				menuPopup.open(FlexGlobals.topLevelApplication as DisplayObjectContainer, true);
 				PopUpManager.centerPopUp(menuPopup);
 			}
 		]]>

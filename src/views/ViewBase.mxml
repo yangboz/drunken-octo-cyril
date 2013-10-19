@@ -11,9 +11,10 @@
 	</s:layout>
 	<fx:Script>
 		<![CDATA[
+			import mx.core.FlexGlobals;
 			import mx.managers.PopUpManager;
 			
-			import views.components.LeftViewPopup;
+			import views.components.Popup_LeftNavigation;
 			protected function imagebutton_back_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.backKeyUpHandler();				
@@ -21,8 +22,9 @@
 			
 			protected function settingButton_clickedHandler(event:MouseEvent):void
 			{
-				var menuPopup:LeftViewPopup = new LeftViewPopup();
-				menuPopup.open(this, true);
+				var menuPopup:Popup_LeftNavigation = new Popup_LeftNavigation();
+//				menuPopup.open(this, true);
+				menuPopup.open(FlexGlobals.topLevelApplication as DisplayObjectContainer, true);
 //				PopUpManager.centerPopUp(menuPopup);
 			}
 			//About chart 

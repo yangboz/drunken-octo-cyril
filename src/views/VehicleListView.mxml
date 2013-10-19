@@ -130,9 +130,11 @@
 											{
 //												FlexGlobals.topLevelApplication.navigator.pushView(VehicleInspectView,event.item);
 												var menuPopup:Popup_VehicleSummary = new Popup_VehicleSummary();
-												menuPopup.open(this, true);
-												menuPopup.data = event.item;
+//												menuPopup.open(this, true);
+												menuPopup.open(FlexGlobals.topLevelApplication as DisplayObjectContainer, true);
 												PopUpManager.centerPopUp(menuPopup);
+												//Set selected item
+												DataFixture.selectedVehicleItem = event.item as VehicleItem;
 											}
 											
 										]]>

@@ -12,6 +12,7 @@
 		<![CDATA[
 			import mx.core.FlexGlobals;
 			import mx.events.FlexEvent;
+			import mx.events.FlexMouseEvent;
 			
 			import views.LoginView;
 			protected function signout_btn_click_handler(event:MouseEvent):void
@@ -31,6 +32,8 @@
 			protected function withPopUpView_creationCompleteHandler(event:FlexEvent):void
 			{
 				systemManager.stage.addEventListener(KeyboardEvent.KEY_DOWN, stageKeyDownHandler, false, 500, true);
+				//
+				this.addEventListener(FlexMouseEvent.MOUSE_DOWN_OUTSIDE,mouseDownOutSideHandler);
 			}
 			// Prevent app close when there is no view to pop to and Back key pressed in popup
 			protected function stageKeyDownHandler(event:KeyboardEvent):void
@@ -43,7 +46,11 @@
 					this.close();
 				}
 			}
-			
+			//
+			protected function mouseDownOutSideHandler(event:FlexMouseEvent):void
+			{
+				this.close();
+			}
 		]]>
 	</fx:Script>
 	
