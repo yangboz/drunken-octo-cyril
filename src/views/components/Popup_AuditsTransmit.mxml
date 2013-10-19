@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SkinnablePopUpContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
+						   xmlns:s="library://ns.adobe.com/flex/spark"
+						   backgroundAlpha="0"
+						   >
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.managers.PopUpManager;
+			protected function cancel_btn_click_handler(event:MouseEvent):void
+			{
+				this.close();
+			}
+			protected function proceed_btn_click_handler(event:MouseEvent):void
+			{
+				this.close();
+				//Display transmit results popup
+				var menuPopup:Popup_AuditsTransmitResult = new Popup_AuditsTransmitResult();
+				menuPopup.open(this, true);
+				PopUpManager.centerPopUp(menuPopup);
+			}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:BorderContainer width="565" height="332" backgroundImage="@Embed('../../assets/images/pop-bg1.png')" borderAlpha="0">
+		<s:VGroup gap="30" paddingLeft="20" paddingTop="25" horizontalAlign="left" verticalAlign="middle">
+			<s:HGroup horizontalAlign="center" width="100%">
+				<s:Image source="@Embed('../../assets/images/logo2.png')"/>
+			</s:HGroup>
+			<s:RichText horizontalCenter="0" verticalCenter="0">
+				<s:textFlow>
+					<s:TextFlow>
+						<s:p fontWeight="bold" color="0x004C89">Audit Transmission: </s:p>
+						<s:p/>
+						<s:p color="0x5486AE">Upload result and Finalise Audit.</s:p>
+					</s:TextFlow>
+				</s:textFlow>
+			</s:RichText>
+			<s:HGroup width="100%"  horizontalAlign="center" verticalAlign="middle" paddingLeft="20" paddingRight="20">
+				<s:Button label="CANCEL" skinClass="skins.Skin_NormalButton" buttonMode="true" click="cancel_btn_click_handler(event)"/>
+				<s:Spacer width="75" height="100%"/>
+				<s:Button label="PROCEED" skinClass="skins.Skin_NormalButton" buttonMode="true" click="proceed_btn_click_handler(event)"/>
+			</s:HGroup>
+		</s:VGroup>
+	</s:BorderContainer>
+</s:SkinnablePopUpContainer>

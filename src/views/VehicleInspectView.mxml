@@ -12,8 +12,10 @@
 		<![CDATA[
 			import mx.events.FlexEvent;
 			
-			import skins.Skin_TransparentButton;
+			import models.DataFixture;
+			import models.vo.VehicleItem;
 			
+			import skins.Skin_TransparentButton;
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -114,7 +116,7 @@
 											</s:HGroup>
 											<s:HGroup verticalAlign="middle">
 												<s:Label text="Description:" color="0x5E5E5E" fontWeight="bold"/>
-												<s:Label text=""/>
+												<s:Label text="{DataFixture.selectedVehicleItem.productDesc}"/>
 											</s:HGroup>
 											<s:HGroup verticalAlign="middle">
 												<s:Label text="Color:" color="0x5E5E5E" fontWeight="bold"/>
@@ -130,7 +132,7 @@
 											</s:HGroup>
 											<s:HGroup verticalAlign="middle">
 												<s:Label text="Ref No:" color="0x5E5E5E" fontWeight="bold"/>
-												<s:Label text=""/>
+												<s:Label text="{DataFixture.selectedVehicleItem.productSerial}"/>
 											</s:HGroup>
 											<s:VGroup paddingTop="-4" verticalAlign="middle">
 												<s:HGroup verticalAlign="middle">
@@ -188,7 +190,7 @@
 												<components:IconItemRenderer_VehicleInspectView itemClick="was_iconitemrenderer_itemClickHandler(event)">
 													<fx:Script>
 														<![CDATA[
-															import views.components.VehicleInspectCarItemPopup;
+															import views.components.Popup_VehicleInspectCarItem;
 															import mx.managers.PopUpManager;
 															import mx.events.ItemClickEvent;
 															
@@ -197,7 +199,7 @@
 															
 															protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
 															{
-																var menuPopup:VehicleInspectCarItemPopup = new VehicleInspectCarItemPopup();
+																var menuPopup:Popup_VehicleInspectCarItem = new Popup_VehicleInspectCarItem();
 																menuPopup.open(this, true);
 																PopUpManager.centerPopUp(menuPopup);
 															}

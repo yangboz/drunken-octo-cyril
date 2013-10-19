@@ -17,9 +17,9 @@
 			import mx.events.FlexEvent;
 			import mx.managers.PopUpManager;
 			
-			import skins.Skin_TransparentButton;
+			import models.DataFixture;
 			
-//			import mx.resources.ResourceManager;
+			import skins.Skin_TransparentButton;
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -96,6 +96,7 @@
 							downColor="0x70B2EE"
 							selectionColor="0x70B2EE"
 							labelField="productName"
+							dataProvider="{DataFixture.fixedVehicleItems}"
 							>
 						<s:itemRenderer>
 							<fx:Component>
@@ -105,7 +106,8 @@
 																 >
 									<fx:Script>
 										<![CDATA[
-											import views.components.VehicleSummaryPopup;
+											import models.vo.VehicleItem;
+											import views.components.Popup_VehicleSummary;
 											import mx.core.FlexGlobals;
 											import mx.events.ItemClickEvent;
 											import flash.events.MouseEvent;
@@ -114,17 +116,20 @@
 											import views.AuditsDetailView;
 											import views.VehicleInspectView;
 											import views.ViewBase;
+											import models.DataFixture;
 											
 											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
 											{
 												//												trace(event.item);
 												FlexGlobals.topLevelApplication.navigator.pushView(VehicleInspectView,event.item);
+												//Set selected item.
+												DataFixture.selectedVehicleItem = event.item as VehicleItem;
 											}
 											
 											protected function was_itemIconClickHandler(event:ItemClickEvent):void
 											{
 //												FlexGlobals.topLevelApplication.navigator.pushView(VehicleInspectView,event.item);
-												var menuPopup:VehicleSummaryPopup = new VehicleSummaryPopup();
+												var menuPopup:Popup_VehicleSummary = new Popup_VehicleSummary();
 												menuPopup.open(this, true);
 												menuPopup.data = event.item;
 												PopUpManager.centerPopUp(menuPopup);
@@ -135,58 +140,6 @@
 								</components:IconItemRenderer_VehicleListView>
 							</fx:Component>
 						</s:itemRenderer>
-						<s:dataProvider>
-							<s:ArrayList>
-								<fx:Object productIcon="" productSerial="W0LF7AHA6BV643875" 
-										   productDesc="ZAFIR TOUREE SE"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="T5LF7AHA6EV643875" 
-										   productDesc="ADAM JAM"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="E1LF7AHE6BV643875" 
-										   productDesc="ASTRA VXR"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="G2LF7AEA6BV643875" 
-										   productDesc="CORSA SRI"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="W0LF7AHA6BV643875" 
-										   productDesc="ZAFIR TOUREE SE"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="T5LF7AHA6EV643875" 
-										   productDesc="ADAM JAM"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="E1LF7AHE6BV643875" 
-										   productDesc="ASTRA VXR"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="G2LF7AEA6BV643875" 
-										   productDesc="CORSA SRI"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="W0LF7AHA6BV643875" 
-										   productDesc="ZAFIR TOUREE SE"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="T5LF7AHA6EV643875" 
-										   productDesc="ADAM JAM"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="E1LF7AHE6BV643875" 
-										   productDesc="ASTRA VXR"
-										   productStatus="Not Audited"
-										   />
-								<fx:Object productIcon="" productSerial="G2LF7AEA6BV643875" 
-										   productDesc="CORSA SRI"
-										   productStatus="Not Audited"
-										   />
-							</s:ArrayList>
-						</s:dataProvider>
 					</s:List>
 				</s:VGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">

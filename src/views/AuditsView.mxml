@@ -15,7 +15,9 @@
 			import mx.events.FlexEvent;
 			import mx.managers.PopUpManager;
 			
-			import views.components.AuditsDownloadPopup;
+			import models.DataFixture;
+			
+			import views.components.Popup_AuditsDownload;
 			
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
@@ -37,12 +39,12 @@
 			protected function download_btn_clickHandler(event:MouseEvent):void
 			{
 				if(id_list_avilable_audits.selectedItem==null) return;
-				var menuPopup:AuditsDownloadPopup = new AuditsDownloadPopup();
+				var menuPopup:Popup_AuditsDownload = new Popup_AuditsDownload();
 				menuPopup.open(this, true);
-				menuPopup.data_displayed = id_list_avilable_audits.selectedItem;
 				PopUpManager.centerPopUp(menuPopup);
-				//Remove selected item.
-				id_list_avilable_audits.dataProvider.removeItemAt(id_list_avilable_audits.selectedIndex);
+				//Set selected item.
+				DataFixture.selectedAuditItem = id_list_avilable_audits.selectedItem;
+				DataFixture.auditedAuditItems.addItem(DataFixture.selectedAuditItem);//Append it.
 			}
 		]]>
 	</fx:Script>
@@ -86,6 +88,7 @@
 							downColor="0x70B2EE"
 							selectionColor="0x70B2EE"
 							labelField="productName"
+						    dataProvider="{DataFixture.fixedAuditItems}"
 							>
 						<s:itemRenderer>
 							<fx:Component>
@@ -108,40 +111,6 @@
 								</components:IconItemRenderer_AuditListView>
 </fx:Component>
 						</s:itemRenderer>
-						<s:dataProvider>
-							<s:ArrayList>
-								<fx:Object productIcon="" productName="0303-Camden Motors" 
-										   productDesc="Inspect all documents."
-										   productSchedule="Schedule for:10/01/2013"
-										   productNumber="62"
-										   productAppendix="Vehicles"
-										   inspectedNumber="0"
-										   otherOutcome="0"
-										   inProgressNumber="0"
-										   notAuditedNumber="62"
-										   />
-								<fx:Object productIcon="" productName="8900-Iuton Cars Ltd" 
-										   productDesc="Check vehicles also in the underground."
-										   productSchedule="Schedule for:10/03/2013"
-										   productNumber="12"
-										   productAppendix="Vehicles"
-										   inspectedNumber="0"
-										   otherOutcome="0"
-										   inProgressNumber="0"
-										   notAuditedNumber="12"
-										   />
-								<fx:Object productIcon="" productName="7356-Spark Cars Ltd" 
-										   productDesc="Check vehicles also in the underground."
-										   productSchedule="Schedule for:10/07/2013"
-										   productNumber="3"
-										   productAppendix="Vehicles"
-										   inspectedNumber="0"
-										   otherOutcome="0"
-										   inProgressNumber="0"
-										   notAuditedNumber="3"
-										   />
-							</s:ArrayList>
-						</s:dataProvider>
 					</s:List>
 				</s:VGroup>
 				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">

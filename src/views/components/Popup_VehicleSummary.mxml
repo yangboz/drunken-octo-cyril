@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SkinnablePopUpContainer xmlns:fx="http://ns.adobe.com/mxml/2009"
+						   xmlns:s="library://ns.adobe.com/flex/spark"
+						   backgroundAlpha="0">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+	
+	<fx:Script>
+		<![CDATA[
+			import models.DataFixture;
+			protected function cancel_btn_click_handler(event:MouseEvent):void
+			{
+				this.close();
+			}
+			protected function proceed_btn_click_handler(event:MouseEvent):void
+			{
+				this.close();
+				//Display results.
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:BorderContainer width="493" height="445"
+					   backgroundImage="@Embed('../../assets/images/pop-bg2.png')"
+					   borderVisible="false">
+		<s:VGroup gap="30" paddingLeft="35" horizontalAlign="center" paddingTop="25" verticalAlign="middle">
+			<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontSize="14" fontWeight="bold"
+					 text="{DataFixture.selectedVehicleItem.productSerial}"/>
+			<s:BorderContainer width="414" height="242"
+							   backgroundImage="@Embed('../../assets/images/table-bg2.PNG')"
+							   borderVisible="false">
+				<s:VGroup gap="13" horizontalAlign="center" paddingTop="7" verticalAlign="middle">
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="V5:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+								 fontWeight="bold" text=""/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="VIPS:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+								 fontWeight="bold" text="{DataFixture.selectedVehicleItem.productSerial}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Reg.No:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+								 fontWeight="bold" text="{DataFixture.selectedVehicleItem.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Plan:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Description:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{DataFixture.selectedVehicleItem.productDesc}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Stock No:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Type:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Audited By:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Primary FR:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
+					</s:HGroup>
+					<s:HGroup width="100%" verticalAlign="middle">
+						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="Audit Status:"/>
+						<s:Spacer width="100%"/>
+						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+								 text="{DataFixture.selectedVehicleItem.productStatus}"/>
+					</s:HGroup>
+				</s:VGroup>
+			</s:BorderContainer>
+			<s:HGroup width="100%" horizontalAlign="center" paddingLeft="20" paddingRight="20"
+					  verticalAlign="middle">
+				<s:Button label="CLOSE" buttonMode="true" click="cancel_btn_click_handler(event)"
+						  skinClass="skins.Skin_NormalButton"/>
+			</s:HGroup>
+		</s:VGroup>
+	</s:BorderContainer>
+</s:SkinnablePopUpContainer>

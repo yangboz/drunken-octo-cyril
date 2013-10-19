@@ -14,12 +14,12 @@
 		<![CDATA[
 			import mx.events.FlexEvent;
 			
+			import models.DataFixture;
+			
 			import skins.Skin_TabBar;
 			import skins.Skin_TransparentButton;
 			
 //			import mx.resources.ResourceManager;
-			[Bindable]
-			public static var data_auditsList:ArrayCollection = new ArrayCollection();
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -35,6 +35,11 @@
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.pushView(AuditsView);	
+			}
+			
+			protected function delete_btn_clickHandler(event:MouseEvent):void
+			{
+				DataFixture.auditedAuditItems.removeItemAt(id_list_audits.selectedIndex);
 			}
 			
 		]]>
@@ -63,7 +68,7 @@
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-trash-gray.png')" 
 								  label="Delete" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" click="delete_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Spacer width="300" height="100%"/>
@@ -99,7 +104,7 @@
 							downColor="0x70B2EE"
 							selectionColor="0x70B2EE"
 							labelField="productName"
-						    dataProvider="{data_auditsList}"
+						    dataProvider="{DataFixture.auditedAuditItems}"
 							>
 						<s:itemRenderer>
 							<fx:Component>
@@ -107,6 +112,8 @@
 																 >
 									<fx:Script>
 										<![CDATA[
+											import models.vo.AuditItem;
+											import models.DataFixture;
 											import mx.core.FlexGlobals;
 											import mx.events.ItemClickEvent;
 											
@@ -117,6 +124,8 @@
 											{
 												//												trace(event.item);
 												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
+												//Set selected item
+												DataFixture.selectedAuditItem = event.item as AuditItem;
 											}
 											
 										]]>

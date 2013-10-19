@@ -31,13 +31,13 @@ package models
 		public static const HEIGHT_APP:Number = 800;
 		//Header
 		public static const WIDTH_HEADER:Number = 1280;
-		public static const HEIGHT_HEADER:Number = 800;
+		public static const HEIGHT_HEADER:Number = 58;
 		//Footer
 		public static const WIDTH_FOOTER:Number = 1280;
-		public static const HEIGHT_FOOTER:Number = 800;
+		public static const HEIGHT_FOOTER:Number = 58;
 		//Body Container
 		public static const WIDTH_BODY:Number = 1280;
-		public static const HEIGHT_BODY:Number = 800;
+		public static const HEIGHT_BODY:Number = 684;
 		//--------------------------------------------------------------------------
 		//
 		// Public properties

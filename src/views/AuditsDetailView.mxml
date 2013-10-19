@@ -17,8 +17,8 @@
 			
 			import skins.Skin_TransparentButton;
 			
-			import views.components.AuditsDownloadPopup;
-			import views.components.AuditsTransmitPopup;
+			import views.components.Popup_AuditsDownload;
+			import views.components.Popup_AuditsTransmit;
 //			import mx.resources.ResourceManager;
 			public var detailInfo:Object;
 			//
@@ -40,7 +40,7 @@
 			
 			protected function download_btn_clickHandler(event:MouseEvent):void
 			{
-				var menuPopup:AuditsDownloadPopup = new AuditsDownloadPopup();
+				var menuPopup:Popup_AuditsDownload = new Popup_AuditsDownload();
 				menuPopup.open(this, true);
 				PopUpManager.centerPopUp(menuPopup);
 			}
@@ -62,7 +62,7 @@
 			
 			protected function transmit_btn_clickHandler(event:MouseEvent):void
 			{
-				var transmitPopup:AuditsTransmitPopup = new AuditsTransmitPopup();
+				var transmitPopup:Popup_AuditsTransmit = new Popup_AuditsTransmit();
 				transmitPopup.open(this, true);
 				PopUpManager.centerPopUp(transmitPopup);
 			}
