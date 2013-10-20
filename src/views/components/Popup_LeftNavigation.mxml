@@ -10,12 +10,16 @@
 			import mx.core.FlexGlobals;
 			import mx.events.FlexEvent;
 			
+			import models.DataFixture;
+			
 			import views.LoginView;
 			protected function signout_btn_click_handler(event:MouseEvent):void
 			{
 				this.close();
 				//
 				FlexGlobals.topLevelApplication.navigator.pushView(LoginView);
+				//Reset the data fixture
+				DataFixture.reset();
 			}
 			protected function exit_btn_click_handler(event:MouseEvent):void
 			{

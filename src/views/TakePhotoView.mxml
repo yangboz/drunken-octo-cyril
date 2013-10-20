@@ -42,7 +42,7 @@
 					horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
-					<s:span fontWeight="bold"></s:span>
+					<s:span fontWeight="bold">VIN</s:span>
 				</s:TextFlow>
 			</s:textFlow>
 		</s:RichText>

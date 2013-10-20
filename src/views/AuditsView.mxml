@@ -46,7 +46,6 @@
 				PopUpManager.centerPopUp(menuPopup);
 				//Set selected item.
 				DataFixture.selectedAuditItem = id_list_avilable_audits.selectedItem;
-				DataFixture.auditedAuditItems.addItem(DataFixture.selectedAuditItem);//Append it.
 			}
 		]]>
 	</fx:Script>

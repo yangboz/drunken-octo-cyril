@@ -23,6 +23,7 @@
 				//Transform the selected item.
 				//Remove selected item firstly.
 				DataFixture.fixedAuditItems.removeItem(DataFixture.selectedAuditItem);
+				DataFixture.auditedAuditItems.addItem(DataFixture.selectedAuditItem);//Append it.
 				//Navigate to the AuditsListView
 				FlexGlobals.topLevelApplication.navigator.pushView(AuditsListView);
 			}

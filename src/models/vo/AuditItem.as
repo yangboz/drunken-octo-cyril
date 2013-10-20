@@ -26,6 +26,7 @@ package models.vo
 		public var productIcon:String=""; 
 		public var productName:String="";//"0303-Camden Motors" 
 		public var productDesc:String="";//"Inspect all documents."
+		public var productDetail:String="";//"Physical 77-83 Grovebuy road leighton buzzard beds,lu7 8te"
 		public var productSchedule:String="";//"Schedule for:05/07/2013"
 		public var productNumber:String="";//"62"
 		public var productAppendix:String="";//"Vehicles"
@@ -56,7 +57,7 @@ package models.vo
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function AuditItem(icon:String,name:String,desc:String,schedule:String,number:String,appendix:String,
+		public function AuditItem(icon:String,name:String,desc:String,detail:String,schedule:String,number:String,appendix:String,
 								  inspectedNumber:String,otherOutcome:String,inProgressNumber:String,notAuditedNumber:String)
 		{
 			super();
@@ -64,6 +65,7 @@ package models.vo
 			this.productIcon = icon;
 			this.productAppendix = appendix;
 			this.productDesc = desc;
+			this.productDetail = detail;
 			this.productName = name;
 			this.productNumber = number;
 			this.productSchedule = schedule;
