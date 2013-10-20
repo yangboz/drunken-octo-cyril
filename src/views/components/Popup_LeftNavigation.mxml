@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<s:SkinnablePopUpContainer xmlns:fx="http://ns.adobe.com/mxml/2009" 
-						   xmlns:s="library://ns.adobe.com/flex/spark"
-						   backgroundAlpha="0"
-						   creationComplete="withPopUpView_creationCompleteHandler(event)"
-						   >
-	<s:layout>
-		<s:VerticalLayout/>
-	</s:layout>
+<components:PopupBase xmlns:components="views.components.*"
+					  xmlns:fx="http://ns.adobe.com/mxml/2009"
+					  xmlns:s="library://ns.adobe.com/flex/spark"
+					  backgroundAlpha="0"
+					  creationComplete="withPopUpView_creationCompleteHandler(event)">
 	
 	<fx:Script>
 		<![CDATA[
 			import mx.core.FlexGlobals;
 			import mx.events.FlexEvent;
-			import mx.events.FlexMouseEvent;
 			
 			import views.LoginView;
 			protected function signout_btn_click_handler(event:MouseEvent):void
@@ -27,40 +23,20 @@
 				//
 				NativeApplication.nativeApplication.exit();
 			}
-			
-			//@see:http://dlgsoftware.com/AIRAndroidBackKey.php
-			protected function withPopUpView_creationCompleteHandler(event:FlexEvent):void
-			{
-				systemManager.stage.addEventListener(KeyboardEvent.KEY_DOWN, stageKeyDownHandler, false, 500, true);
-				//
-				this.addEventListener(FlexMouseEvent.MOUSE_DOWN_OUTSIDE,mouseDownOutSideHandler);
-			}
-			// Prevent app close when there is no view to pop to and Back key pressed in popup
-			protected function stageKeyDownHandler(event:KeyboardEvent):void
-			{
-				var key:uint = event.keyCode;
-				if (key == Keyboard.BACK && !systemManager.numModalWindows==0)
-				{
-					event.preventDefault();
-					//
-					this.close();
-				}
-			}
-			//
-			protected function mouseDownOutSideHandler(event:FlexMouseEvent):void
-			{
-				this.close();
-			}
 		]]>
 	</fx:Script>
 	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<s:BorderContainer width="281" height="729" backgroundImage="@Embed('../../assets/images/left-bg.png')" borderAlpha="0">
-		<s:VGroup gap="5" paddingLeft="50" paddingTop="290" horizontalAlign="left" verticalAlign="middle">
-			<s:Button label="Sign out" click="signout_btn_click_handler(event)" width="230" height="40" alpha=".0" buttonMode="true"/>
-			<s:Button label="Exit WAS" click="exit_btn_click_handler(event)" width="230" height="40" alpha=".0" buttonMode="true"/>
+	<s:BorderContainer width="281" height="729"
+					   backgroundImage="@Embed('../../assets/images/left-bg.png')" borderAlpha="0">
+		<s:VGroup gap="5" horizontalAlign="left" paddingLeft="50" paddingTop="290"
+				  verticalAlign="middle">
+			<s:Button width="230" height="40" label="Sign out" alpha=".0" buttonMode="true"
+					  click="signout_btn_click_handler(event)"/>
+			<s:Button width="230" height="40" label="Exit WAS" alpha=".0" buttonMode="true"
+					  click="exit_btn_click_handler(event)"/>
 		</s:VGroup>
 	</s:BorderContainer>
-</s:SkinnablePopUpContainer>
+</components:PopupBase>

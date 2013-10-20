@@ -34,7 +34,7 @@
 			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
-				this.navigator.pushView(AuditsView);		
+				this.navigator.pushView(AuditsListView);		
 			}
 			
 			protected function back_btn_clickHandler(event:MouseEvent):void
@@ -157,7 +157,7 @@
 								  buttonMode="true" click="detail_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
-						<s:Button icon="@Embed('../assets/images/icon-list.png')" 
+						<s:Button icon="@Embed('../assets/images/icon-search.png')" 
 								  label="  Search" skinClass="skins.Skin_TransparentButton"
 								  buttonMode="true" click="search_btn_clickHandler(event)"
 								  />
@@ -183,7 +183,8 @@
 					horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
-					<s:span fontWeight="bold">Vehicle List</s:span>
+					<s:span fontWeight="bold">Vehicle List - </s:span>
+					<s:span fontWeight="bold">{DataFixture.selectedAuditItem.productName}</s:span>
 				</s:TextFlow>
 			</s:textFlow>
 		</s:RichText>

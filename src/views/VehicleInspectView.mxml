@@ -13,7 +13,6 @@
 			import mx.events.FlexEvent;
 			
 			import models.DataFixture;
-			import models.vo.VehicleItem;
 			
 			import skins.Skin_TransparentButton;
 			//
@@ -30,7 +29,7 @@
 			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
-				this.navigator.pushView(AuditsView);		
+				this.navigator.pushView(AuditsListView);		
 			}
 			
 			protected function back_btn_clickHandler(event:MouseEvent):void

@@ -15,6 +15,7 @@ package models.vo
 	 * Created Oct 19, 2013 8:57:34 PM
 	 * @history 05/00/12,
 	 */ 
+	[Bindable]
 	public final class AuditItem extends Object
 	{ 
 		//--------------------------------------------------------------------------
