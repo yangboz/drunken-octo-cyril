@@ -13,6 +13,7 @@
 			import mx.events.FlexEvent;
 			
 			import models.DataFixture;
+			import models.vo.VehicleItem;
 			
 			import skins.Skin_TransparentButton;
 			//
@@ -54,6 +55,15 @@
 				this.navigator.pushView(TakePhotoView);
 			}
 			
+			protected function save_btn_clickHandler(event:MouseEvent):void
+			{
+				DataFixture.selectedVehicleItem.productStatus = VehicleItem.STATUS_INSPECTED;
+				//Update the status for audit items.
+				DataFixture.selectedAuditItem.inspectedNumber++;
+				//Navigate to VehicleListView
+				this.navigator.pushView(VehicleListView);
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -72,7 +82,7 @@
 			
 			<s:VGroup width="1251" height="58" gap="0" paddingLeft="50" paddingTop="2"
 					  verticalAlign="top">
-				<s:HGroup gap="1" horizontalAlign="left" paddingLeft="50">
+				<s:HGroup gap="1" horizontalAlign="left" paddingLeft="45">
 					<s:Button label="Inspect" buttonMode="true"
 							  click="{viewstack.selectedChild = child1}"
 							  enabled="{viewstack.selectedChild != child1}"
@@ -103,6 +113,7 @@
 											<s:Button label="  Save" buttonMode="true"
 													  icon="@Embed('../assets/images/icon-save.PNG')"
 													  iconPlacement="right"
+													  click="save_btn_clickHandler(event)"
 													  skinClass="skins.Skin_TransparentButton"/>
 										</s:HGroup>
 									</s:BorderContainer>

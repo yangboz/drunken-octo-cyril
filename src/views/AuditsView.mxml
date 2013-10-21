@@ -39,7 +39,7 @@
 			
 			protected function download_btn_clickHandler(event:MouseEvent):void
 			{
-				if(id_list_avilable_audits.selectedItem==null) return;
+				if(id_list_avilable_audits.selectedItem == null) return;
 				var menuPopup:Popup_AuditsDownload = new Popup_AuditsDownload();
 //				menuPopup.open(this, true);
 				menuPopup.open(FlexGlobals.topLevelApplication as DisplayObjectContainer, true);

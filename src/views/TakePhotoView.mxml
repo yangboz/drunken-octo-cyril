@@ -8,6 +8,11 @@
 		xmlns:views="views.*"
 		xmlns:containers="com.iwobanas.containers.*"
 		>
+	<fx:Script>
+		<![CDATA[
+			import models.DataFixture;
+		]]>
+	</fx:Script>
 	
 	
 	
@@ -42,7 +47,7 @@
 					horizontalCenter="0" verticalCenter="0">
 			<s:textFlow>
 				<s:TextFlow>
-					<s:span fontWeight="bold">VIN</s:span>
+					<s:span fontWeight="bold">Vehicle Inspection -</s:span><s:span fontWeight="bold">{DataFixture.selectedVehicleItem.productSerial}</s:span>
 				</s:TextFlow>
 			</s:textFlow>
 		</s:RichText>

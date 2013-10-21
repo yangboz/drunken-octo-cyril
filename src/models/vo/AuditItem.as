@@ -1,5 +1,7 @@
 package models.vo
 {
+	import mx.collections.ArrayList;
+
 	//--------------------------------------------------------------------------
 	//
 	// Imports
@@ -26,18 +28,21 @@ package models.vo
 		public var productIcon:String=""; 
 		public var productName:String="";//"0303-Camden Motors" 
 		public var productDesc:String="";//"Inspect all documents."
-		public var productDetail:String="";//"Physical 77-83 Grovebuy road leighton buzzard beds,lu7 8te"
+		public var productType:String="";//"Physical"
+		public var productDetail:String="";//"77-83 Grovebuy road leighton buzzard beds,lu7 8te"
 		public var productSchedule:String="";//"Schedule for:05/07/2013"
-		public var productNumber:String="";//"62"
+		public var productNumber:Number=62;//"62"
 		public var productAppendix:String="";//"Vehicles"
-		public var inspectedNumber:String="";//"0"
-		public var otherOutcome:String="";//"0"
-		public var inProgressNumber:String="";//"0"
-		public var notAuditedNumber:String="";//"62"
+		public var inspectedNumber:Number=0;//"0"
+		public var otherOutcome:Number=0;//"0"
+		public var inProgressNumber:Number=0;//"0"
+		public var notAuditedNumber:Number=0;//"62"
+		//vehicle inspection related fields.
+		public var vehicleItems:ArrayList;//Vehicle item list for reference.
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		
+
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -57,22 +62,24 @@ package models.vo
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function AuditItem(icon:String,name:String,desc:String,detail:String,schedule:String,number:String,appendix:String,
-								  inspectedNumber:String,otherOutcome:String,inProgressNumber:String,notAuditedNumber:String)
+		public function AuditItem(icon:String,name:String,desc:String,type:String,detail:String,schedule:String,pNumber:Number,appendix:String,
+								  inspectedNumber:Number,otherOutcome:Number,inProgressNumber:Number,notAuditedNumber:Number,vehicleItems:ArrayList)
 		{
 			super();
 			//
 			this.productIcon = icon;
 			this.productAppendix = appendix;
 			this.productDesc = desc;
+			this.productType = type;
 			this.productDetail = detail;
 			this.productName = name;
-			this.productNumber = number;
+			this.productNumber = pNumber;
 			this.productSchedule = schedule;
 			this.inspectedNumber = inspectedNumber;
 			this.otherOutcome = otherOutcome;
 			this.inProgressNumber = inProgressNumber;
 			this.notAuditedNumber = notAuditedNumber;
+			this.vehicleItems = vehicleItems;
 		} 
 		//--------------------------------------------------------------------------
 		//

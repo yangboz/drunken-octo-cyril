@@ -96,7 +96,7 @@
 							downColor="0x70B2EE"
 							selectionColor="0x70B2EE"
 							labelField="productName"
-							dataProvider="{DataFixture.fixedVehicleItems}"
+							dataProvider="{DataFixture.selectedAuditItem.vehicleItems}"
 							>
 						<s:itemRenderer>
 							<fx:Component>

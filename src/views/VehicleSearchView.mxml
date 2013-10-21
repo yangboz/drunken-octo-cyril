@@ -12,11 +12,6 @@
 		<![CDATA[
 			import mx.events.FlexEvent;
 			
-			import spark.events.IndexChangeEvent;
-			
-			import skins.Skin_TabBar;
-			import skins.Skin_TransparentButton;
-			
 			//
 			protected function loginBtn_clickHandler(event:MouseEvent):void
 			{
@@ -88,7 +83,7 @@
 						<s:Spacer width="200" height="100%"/>
 						<s:Label left="5" right="5" top="5" color="0x4A4A4A" fontSize="14"
 								 fontWeight="bold" text="Search Mode:"/>
-						<s:TabBar id="modelTabBar" skinClass="skins.Skin_TabBar" >  
+						<s:TabBar id="modelTabBar" skinClass="skins.Skin_TabBar">  
 							<mx:ArrayCollection>
 								<fx:String>Manual</fx:String> 
 								<fx:String>Scan</fx:String> 
@@ -98,10 +93,9 @@
 				</s:BorderContainer>
 				<s:VGroup width="100%" height="510" horizontalAlign="center" paddingLeft="200"
 						  paddingRight="200" verticalAlign="middle">
-					<s:HGroup width="100%" height="100%" horizontalAlign="left"
-							  paddingRight="10" verticalAlign="middle">
-						<s:Label color="0x4A4A4A" fontSize="14"
-								 fontWeight="bold" text="Enter Data"/>
+					<s:HGroup width="100%" height="100%" horizontalAlign="left" paddingRight="10"
+							  verticalAlign="middle">
+						<s:Label color="0x4A4A4A" fontSize="14" fontWeight="bold" text="Enter Data"/>
 						<s:Spacer width="100%" height="100%"/>
 						<s:Button label="  Search in all audits" buttonMode="true"
 								  icon="@Embed('../assets/images/icon-select-blue.png')"
@@ -110,9 +104,11 @@
 					<s:BorderContainer width="100%" height="58"
 									   backgroundImage="@Embed('../assets/images/txtbox-bg.PNG')"
 									   borderAlpha="0">
-						<s:TextInput width="100%" height="58" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false"/>
+						<s:TextInput width="100%" height="58" borderVisible="false" color="0x8E8E8E"
+									 contentBackgroundColor="white" enabled="{!Boolean(modelTabBar.selectedIndex)}"/>
 					</s:BorderContainer>
-					<s:BitmapImage source="@Embed('../assets/images/scan.png')" visible="{Boolean(modelTabBar.selectedIndex)}"/>
+					<s:BitmapImage visible="{Boolean(modelTabBar.selectedIndex)}"
+								   source="@Embed('../assets/images/scan.png')"/>
 				</s:VGroup>
 				<s:BorderContainer width="1251" height="58"
 								   backgroundImage="@Embed('../assets/images/container-bg1.png')"
