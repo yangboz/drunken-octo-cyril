@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<views:ViewBase xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:mx="library://ns.adobe.com/flex/mx"
+		xmlns:components="views.components.*"
+	    creationComplete="view_creationCompleteHandler(event)"
+		backgroundAlpha="0"
+	    actionBarVisible="true"
+		xmlns:views="views.*"
+		xmlns:containers="com.iwobanas.containers.*"
+		>
+	
+	<fx:Script>
+		<![CDATA[
+			import mx.core.FlexGlobals;
+			import mx.events.FlexEvent;
+			import mx.managers.PopUpManager;
+			
+			import models.DataFixture;
+			
+			import views.components.Popup_AuditsDownload;
+			
+			//
+			protected function loginBtn_clickHandler(event:MouseEvent):void
+			{
+//				this.navigator.pushView(HomeView);
+//				trace(ResourceManager.getInstance().localeChain);
+			}
+			
+			protected function view_creationCompleteHandler(event:FlexEvent):void
+			{
+				
+			}
+			
+			protected function audits_btn_clickHandler(event:MouseEvent):void
+			{
+				this.navigator.pushView(AuditsListView);
+			}
+			
+			protected function download_btn_clickHandler(event:MouseEvent):void
+			{
+				if(id_list_avilable_audits.selectedItem == null) return;
+				var menuPopup:Popup_AuditsDownload = new Popup_AuditsDownload();
+//				menuPopup.open(this, true);
+				menuPopup.open(FlexGlobals.topLevelApplication as DisplayObjectContainer, true);
+				PopUpManager.centerPopUp(menuPopup);
+				//Set selected items.
+//				trace("selectedItem:",id_list_avilable_audits.selectedItem);
+//				trace("selectedItems:",id_list_avilable_audits.selectedItems);
+				var len:int = id_list_avilable_audits.selectedItems.length;
+				for(var i:int=0;i<len;i++)
+				{
+					DataFixture.selectedAuditItems.addItem(id_list_avilable_audits.selectedItems[i]);
+				}
+			}
+		]]>
+	</fx:Script>
+	
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<!--<s:VGroup horizontalCenter="0" verticalCenter="0" horizontalAlign="center" verticalAlign="middle" 
+			  paddingBottom="10"
+			  paddingLeft="10"
+			  paddingRight="10"
+			  paddingTop="10"
+			  >-->
+			
+		<s:BorderContainer width="1265" height="640" backgroundImage="@Embed('../assets/images/container-bg1.PNG')" borderAlpha="0">
+			
+			<s:VGroup paddingTop="8" verticalAlign="top" width="1251" height="58" paddingLeft="5" paddingRight="5">
+				<s:BorderContainer id="actionBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/actionBar-bg.png')" borderAlpha="0">
+					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" height="100%" paddingLeft="10" paddingRight="10">
+						<s:Button icon="@Embed('../assets/images/icon-select-gray.png')" 
+								  label=" Select All" skinClass="skins.Skin_TransparentButton"
+								  buttonMode="true"
+								  />
+						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
+						<s:Button icon="@Embed('../assets/images/icon-download-gray.png')" 
+								  label="Download" skinClass="skins.Skin_TransparentButton"
+								  buttonMode="true"
+								  click="download_btn_clickHandler(event)"
+								  />
+						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
+					</s:HGroup>
+				</s:BorderContainer>
+				<s:VGroup paddingTop="8" paddingLeft="100" paddingRight="100" verticalAlign="middle" width="1251" height="500">
+					<s:List 
+						    id="id_list_avilable_audits"
+							width="100%"
+							height="100%"
+							alternatingItemColors="0xE3E3E3"
+							contentBackgroundColor="0xF9F9F9"
+							downColor="0x70B2EE"
+							selectionColor="0x70B2EE"
+							labelField="productName"
+						    dataProvider="{DataFixture.fixedAuditItems}"
+						    allowMultipleSelection="true"
+							>
+						<s:itemRenderer>
+							<fx:Component>
+								<components:IconItemRenderer_AvilableAuditListView itemClick="was_iconitemrenderer_itemClickHandler(event)"
+							>
+									<fx:Script>
+										<![CDATA[
+											import mx.events.ItemClickEvent;
+											
+											import views.ViewBase;
+											
+											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
+											{
+//												trace(event.item);
+//												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
+											}
+											
+										]]>
+									</fx:Script>
+								</components:IconItemRenderer_AvilableAuditListView>
+</fx:Component>
+						</s:itemRenderer>
+					</s:List>
+				</s:VGroup>
+				<s:BorderContainer id="controlBar" width="1251" height="58" backgroundImage="@Embed('../assets/images/container-bg1.png')" borderAlpha="0">
+					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" gap="37" height="100%">
+						<s:Button icon="@Embed('../assets/images/icon-avilable_audits.png')" 
+								  label=" Audits List" skinClass="skins.Skin_TransparentButton"
+								  click="audits_btn_clickHandler(event)"
+								  buttonMode="true"
+								  />
+					</s:HGroup>
+				</s:BorderContainer>
+			</s:VGroup>
+			
+		</s:BorderContainer>
+	<!--<containers:CollapsiblePanel id="collapsibleSettingPanel" height="100%" width="100"
+								 skinClass="com.iwobanas.skins.CollapsiblePanelSkin"
+								 title="collapsibleSettingPanel" >
+		
+		<containers:layout>
+			<s:VerticalLayout paddingRight="10" paddingLeft="10" paddingTop="10" paddingBottom="10" />
+		</containers:layout>
+		<s:NumericStepper id="sampleStepper" />
+		
+	</containers:CollapsiblePanel>-->
+	
+	<!-- Override the title to insert a Label control. -->
+	<views:titleContent>
+		
+		<s:RichText color="0xFFFFFF"
+					horizontalCenter="0" verticalCenter="0">
+			<s:textFlow>
+				<s:TextFlow>
+					<s:span fontWeight="bold">Avilable Audits</s:span>
+				</s:TextFlow>
+			</s:textFlow>
+		</s:RichText>
+		
+	</views:titleContent>
+	
+</views:ViewBase>

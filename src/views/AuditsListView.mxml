@@ -34,7 +34,7 @@
 			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
-				this.navigator.pushView(AuditsView);	
+				this.navigator.pushView(AuditsAvilableView);	
 			}
 			
 			protected function delete_btn_clickHandler(event:MouseEvent):void
@@ -122,10 +122,10 @@
 											
 											protected function was_iconitemrenderer_itemClickHandler(event:ItemClickEvent):void
 											{
-												//												trace(event.item);
-												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
 												//Set selected item
 												DataFixture.selectedAuditItem = event.item as AuditItem;
+												//												trace(event.item);
+												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
 											}
 											
 										]]>

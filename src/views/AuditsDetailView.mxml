@@ -167,7 +167,7 @@
 											 text="TOTAL" fontSize="14"/>
 									<s:Spacer width="100%"/>
 									<s:Label left="5" right="5" top="5" color="0x5C5C5C" fontWeight="bold"
-											 text="{DataFixture.selectedAuditItem.productNumber}" fontSize="14"/>
+											 text="{DataFixture.selectedAuditItem.totalNumber}" fontSize="14"/>
 								</s:HGroup>
 								
 							</s:VGroup>

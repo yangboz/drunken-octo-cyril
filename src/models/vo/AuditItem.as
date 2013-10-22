@@ -37,6 +37,7 @@ package models.vo
 		public var otherOutcome:Number=0;//"0"
 		public var inProgressNumber:Number=0;//"0"
 		public var notAuditedNumber:Number=0;//"62"
+		public var totalNumber:Number=0;//
 		//vehicle inspection related fields.
 		public var vehicleItems:ArrayList;//Vehicle item list for reference.
 		//----------------------------------
@@ -63,7 +64,7 @@ package models.vo
 		//
 		//--------------------------------------------------------------------------
 		public function AuditItem(icon:String,name:String,desc:String,type:String,detail:String,schedule:String,pNumber:Number,appendix:String,
-								  inspectedNumber:Number,otherOutcome:Number,inProgressNumber:Number,notAuditedNumber:Number,vehicleItems:ArrayList)
+								  inspectedNumber:Number,otherOutcome:Number,inProgressNumber:Number,notAuditedNumber:Number,total:Number,vehicleItems:ArrayList)
 		{
 			super();
 			//
@@ -79,6 +80,7 @@ package models.vo
 			this.otherOutcome = otherOutcome;
 			this.inProgressNumber = inProgressNumber;
 			this.notAuditedNumber = notAuditedNumber;
+			this.totalNumber = total;
 			this.vehicleItems = vehicleItems;
 		} 
 		//--------------------------------------------------------------------------

@@ -34,22 +34,20 @@ package models
 		[Bindable]
 		public static var selectedAuditItem:AuditItem;
 		[Bindable]
+		public static var selectedAuditItems:ArrayList = new ArrayList([]);;
+		[Bindable]
 		public static var selectedVehicleItem:VehicleItem;
 		//Fixed for preparing.
 		[Bindable]
 		public static var fixedAuditItems:ArrayList = getFixedAuditItems();
 		//
-		[Bindable]
+//		[Bindable]
 //		public static var fixedVehicleItems:ArrayList = getFixedVehicleItems();
 		//Audited
 		[Bindable]
-		public static var auditedAuditItems:ArrayList = new ArrayList(
-			[]
-		);
+		public static var auditedAuditItems:ArrayList = new ArrayList([]);
 		[Bindable]
-		public static var auditedVehicleItems:ArrayList = new ArrayList(
-			[]
-		);
+		public static var auditedVehicleItems:ArrayList = new ArrayList([]);
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -84,6 +82,7 @@ package models
 		public static function reset():void
 		{
 			selectedAuditItem = null;
+			selectedAuditItems = new ArrayList([]);
 			selectedVehicleItem = null;
 			fixedAuditItems = getFixedAuditItems();
 //			fixedVehicleItems = getFixedVehicleItems();
@@ -110,9 +109,9 @@ package models
 		{
 			return new ArrayList(
 				[
-					new AuditItem("","0303-Camden Motors","Inspect all documents.","Physical","77-83 Grovebuy road leighton buzzard beds,lu7 8te","Schedule for:10/01/2013",62,"Vehicles",0,0,0,62,getFixedVehicleItems_00()),
-					new AuditItem("","8900-Iuton Cars Ltd","Check vehicles also in the underground.","Physical","Grange Road Luton Hal Street,Beds LU1 988","Schedule for:10/03/2013",12,"Vehicles",0,0,0,12,getFixedVehicleItems_01()),
-					new AuditItem("","7356-Spark Cars Ltd","Check vehicles also in the underground.","Physical","77-83 Grovebuy road leighton buzzard beds,lu7 8te","Schedule for:10/07/2013",3,"Vehicles",0,0,0,3,getFixedVehicleItems_02())
+					new AuditItem("","0303-Camden Motors","Inspect all documents.","Physical","77-83 Grovebuy road leighton buzzard beds,lu7 8te","Schedule for:10/01/2013",15,"Vehicles",0,0,0,15,15,getFixedVehicleItems_00()),
+					new AuditItem("","8900-Iuton Cars Ltd","Check vehicles also in the underground.","Physical","Grange Road Luton Hal Street,Beds LU1 988","Schedule for:10/03/2013",12,"Vehicles",0,0,0,4,12,getFixedVehicleItems_01()),
+					new AuditItem("","7356-Spark Cars Ltd","Check vehicles also in the underground.","Physical","77-83 Grovebuy road leighton buzzard beds,lu7 8te","Schedule for:10/07/2013",5,"Vehicles",0,0,0,3,5,getFixedVehicleItems_02())
 				]
 			);	
 		}

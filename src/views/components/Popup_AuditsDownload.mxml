@@ -6,15 +6,18 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.collections.ArrayList;
 			import mx.core.FlexGlobals;
 			
 			import models.DataFixture;
+			import models.vo.AuditItem;
 			
 			import views.AuditsListView;
 			
 			//
 			protected function cancel_btn_click_handler(event:MouseEvent):void
 			{
+				DataFixture.selectedAuditItems = new ArrayList([]);//clean it.
 				this.close();
 			}
 			protected function download_btn_click_handler(event:MouseEvent):void
@@ -22,8 +25,16 @@
 				this.close();
 				//Transform the selected item.
 				//Remove selected item firstly.
-				DataFixture.fixedAuditItems.removeItem(DataFixture.selectedAuditItem);
-				DataFixture.auditedAuditItems.addItem(DataFixture.selectedAuditItem);//Append it.
+//				DataFixture.fixedAuditItems.removeItem(DataFixture.selectedAuditItem);
+//				DataFixture.auditedAuditItems.addItem(DataFixture.selectedAuditItem);//Append it.
+				//Remove selected items.
+				var len:int = DataFixture.selectedAuditItems.length;
+				for(var i:int=0;i<len;i++)
+				{
+					var item:AuditItem = DataFixture.selectedAuditItems.getItemAt(i) as AuditItem;
+					DataFixture.fixedAuditItems.removeItem(item);
+					DataFixture.auditedAuditItems.addItem(item);//Append it.
+				}
 				//Navigate to the AuditsListView
 				FlexGlobals.topLevelApplication.navigator.pushView(AuditsListView);
 			}
