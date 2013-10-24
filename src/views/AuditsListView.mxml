@@ -12,9 +12,11 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.collections.ArrayList;
 			import mx.events.FlexEvent;
 			
 			import models.DataFixture;
+			import models.vo.AuditItem;
 			
 			import skins.Skin_TabBar;
 			import skins.Skin_TransparentButton;
@@ -39,7 +41,25 @@
 			
 			protected function delete_btn_clickHandler(event:MouseEvent):void
 			{
-				DataFixture.auditedAuditItems.removeItemAt(id_list_audits.selectedIndex);
+				//
+				var selectedAuditItemsLen:int = DataFixture.selectedAuditItems.length;
+				trace("DataFixture.selectedAuditItems:",DataFixture.selectedAuditItems);
+				trace("DataFixture.auditingAuditItems:",DataFixture.auditingAuditItems);
+				var auditingAuditItemsLen:int = DataFixture.auditingAuditItems.length;
+				var leftAuditingItems:ArrayList = new ArrayList(DataFixture.auditingAuditItems.source.concat());
+				for(var i:int=0;i<selectedAuditItemsLen;i++)//reverse the auditing items.
+				{
+					var item:AuditItem = id_list_audits.selectedItems[i] as AuditItem;
+					trace("Deleted item:",item);
+					if(DataFixture.auditingAuditItems.getItemIndex(item)!=-1)
+					{
+						leftAuditingItems.removeItem(item);
+						DataFixture.selectedAuditItems.removeItem(item);
+					}
+					//Recycle it
+					DataFixture.fixedAuditItems.addItem(item);
+				}
+				DataFixture.auditingAuditItems = leftAuditingItems;
 			}
 			
 		]]>
@@ -104,11 +124,14 @@
 							downColor="0x70B2EE"
 							selectionColor="0x70B2EE"
 							labelField="productName"
-						    dataProvider="{DataFixture.auditedAuditItems}"
+						    dataProvider="{DataFixture.auditingAuditItems}"
+						    allowMultipleSelection="true"
 							>
 						<s:itemRenderer>
 							<fx:Component>
-								<components:IconItemRenderer_AuditListView itemClick="was_iconitemrenderer_itemClickHandler(event)"
+								<components:IconItemRenderer_AuditListView 
+								    itemIconClick="iconitemrenderer_auditlistview_itemIconClickHandler(event)"
+									itemClick="was_iconitemrenderer_itemClickHandler(event)"
 																 >
 									<fx:Script>
 										<![CDATA[
@@ -127,6 +150,32 @@
 												//												trace(event.item);
 												FlexGlobals.topLevelApplication.navigator.pushView(AuditsDetailView,event.item);
 											}
+											
+											protected function iconitemrenderer_auditlistview_itemIconClickHandler(event:ItemClickEvent):void
+											{
+												if(event.item)//IconToggleButton selected
+												{
+													var rawItem:AuditItem = event.item.rawItem;
+													var selected:Boolean = event.item.selected;
+													trace("DataFixture.selectedAuditItems:",DataFixture.selectedAuditItems);
+													if(selected)
+													{
+														if(DataFixture.selectedAuditItems.getItemIndex(rawItem)==-1)
+														{
+															DataFixture.selectedAuditItems.addItem(rawItem);
+														}
+													}else
+													{
+														if(DataFixture.selectedAuditItems.getItemIndex(rawItem)!=-1)
+														{
+															DataFixture.selectedAuditItems.removeItem(rawItem);
+														}
+													}
+													
+												}
+												trace("DataFixture.selectedAuditItems:",DataFixture.selectedAuditItems);
+											}
+											
 											
 										]]>
 									</fx:Script>

@@ -54,7 +54,8 @@
 				{
 					freshItems.addItem(id_list_avilable_audits.selectedItems[i]);
 				}
-				DataFixture.selectedAuditItems = freshItems;
+				DataFixture.auditingAuditItems = freshItems;
+				trace("DataFixture.auditingAuditItems:",DataFixture.auditingAuditItems);
 			}
 		]]>
 	</fx:Script>

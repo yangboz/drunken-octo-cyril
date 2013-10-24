@@ -36,14 +36,14 @@
 					<s:HGroup width="100%" verticalAlign="middle">
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold" text="V5:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+						<s:Label left="150" top="5" color="0xA5A5A5" fontSize="14"
 								 fontWeight="bold" text=""/>
 					</s:HGroup>
 					<s:HGroup width="100%" verticalAlign="middle">
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="VIPS:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+						<s:Label left="150" top="5" color="0xA5A5A5" fontSize="14"
 								 fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productSerial}"/>
 					</s:HGroup>
@@ -51,7 +51,7 @@
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="Reg.No:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" right="5" top="5" color="0xA5A5A5" fontSize="14"
+						<s:Label left="150" top="5" color="0xA5A5A5" fontSize="14"
 								 fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
 					</s:HGroup>
@@ -59,49 +59,49 @@
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="Plan:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+						<s:Label left="150" color="0xA5A5A5" fontSize="14" fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
 					</s:HGroup>
 					<s:HGroup width="100%" verticalAlign="middle">
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="Description:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+						<s:Label left="150" color="0xA5A5A5" fontSize="14" fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productDesc}"/>
 					</s:HGroup>
 					<s:HGroup width="100%" verticalAlign="middle">
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="Stock No:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+						<s:Label left="150" color="0xA5A5A5" fontSize="14" fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
 					</s:HGroup>
-					<s:HGroup width="100%" verticalAlign="middle">
+					<s:HGroup width="100%" verticalAlign="middle" gap="100">
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="Type:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+						<s:Label left="150" color="0xA5A5A5" fontSize="14" fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
 					</s:HGroup>
 					<s:HGroup width="100%" verticalAlign="middle">
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="Audited By:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+						<s:Label left="150" color="0xA5A5A5" fontSize="14" fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
 					</s:HGroup>
 					<s:HGroup width="100%" verticalAlign="middle">
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="Primary FR:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+						<s:Label left="150" color="0xA5A5A5" fontSize="14" fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productNumber}"/>
 					</s:HGroup>
 					<s:HGroup width="100%" verticalAlign="middle">
 						<s:Label left="5" color="0x6495B7" fontSize="14" fontWeight="bold"
 								 text="Audit Status:"/>
 						<s:Spacer width="100%"/>
-						<s:Label left="15" color="0xA5A5A5" fontSize="14" fontWeight="bold"
+						<s:Label left="150" color="0xA5A5A5" fontSize="14" fontWeight="bold"
 								 text="{DataFixture.selectedVehicleItem.productStatus}"/>
 					</s:HGroup>
 				</s:VGroup>

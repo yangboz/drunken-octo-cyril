@@ -18,7 +18,7 @@
 				//Navigate to AuditListView
 				FlexGlobals.topLevelApplication.navigator.pushView(AuditsListView);
 				//Remove it from audit list view
-				DataFixture.auditedAuditItems.removeItem(DataFixture.selectedAuditItem);
+				DataFixture.auditingAuditItems.removeItem(DataFixture.selectedAuditItem);
 			}
 		]]>
 	</fx:Script>
