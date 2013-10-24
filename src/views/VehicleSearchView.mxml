@@ -103,18 +103,19 @@
 								  icon="@Embed('../assets/images/icon-select-blue.png')"
 								  skinClass="skins.Skin_TransparentButton"/>
 					</s:HGroup>
-					<s:BorderContainer width="100%" height="58"
-									   backgroundImage="@Embed('../assets/images/txtbox-bg.PNG')"
-									   borderAlpha="0">
-						<s:TextInput width="100%" height="58" borderVisible="false" color="0x8E8E8E"
-									 contentBackgroundColor="white" enabled="{!Boolean(modelTabBar.selectedIndex)}"/>
-					</s:BorderContainer>
-					<s:HGroup width="100%" height="100%" horizontalAlign="center" paddingRight="10" visible="{Boolean(modelTabBar.selectedIndex)}">
-						<s:Button label="Search" buttonMode="true"
+					<s:VGroup width="100%" height="100%" horizontalAlign="left" paddingRight="10" >
+						<s:BorderContainer width="100%" height="58"
+										   backgroundImage="@Embed('../assets/images/txtbox-bg.PNG')"
+										   borderAlpha="0">
+							<s:TextInput width="100%" height="58" borderVisible="false" color="0x8E8E8E"
+										 contentBackgroundColor="white" enabled="{!Boolean(modelTabBar.selectedIndex)}"/>
+						</s:BorderContainer>
+						<s:Button label="Search" buttonMode="true" 
 								  skinClass="skins.Skin_NormalButton"/>
-						<s:BitmapImage 
-									   source="@Embed('../assets/images/scan.png')"/>
-					</s:HGroup>
+					</s:VGroup>
+					
+					<s:BitmapImage visible="{Boolean(modelTabBar.selectedIndex)}"
+								   source="@Embed('../assets/images/scan.png')"/>
 				</s:VGroup>
 				<s:BorderContainer width="1251" height="58"
 								   backgroundImage="@Embed('../assets/images/container-bg1.png')"

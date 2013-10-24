@@ -37,6 +37,7 @@
 		<s:State name="over" />
 		<s:State name="down" />
 		<s:State name="disabled" />
+		<s:State name="emphized" />
 	</s:states>
 	
 	<!--<s:Rect left="0" right="0" top="0" bottom="0" >
@@ -46,7 +47,7 @@
 	</s:Rect>-->
 	
 	<s:BitmapImage source="@Embed('../assets/images/btn-bg.png')" includeIn="up, disabled"/>
-	<s:BitmapImage source="@Embed('../assets/images/btn-bg2.png')" includeIn="over,down"/>
+	<s:BitmapImage source="@Embed('../assets/images/btn-bg2.png')" includeIn="over,down,emphized"/>
 	
 	<!-- layer 8: text -->
 	<s:Label id="labelDisplay"

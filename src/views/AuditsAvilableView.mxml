@@ -12,6 +12,7 @@
 	
 	<fx:Script>
 		<![CDATA[
+			import mx.collections.ArrayList;
 			import mx.core.FlexGlobals;
 			import mx.events.FlexEvent;
 			import mx.managers.PopUpManager;
@@ -48,10 +49,12 @@
 //				trace("selectedItem:",id_list_avilable_audits.selectedItem);
 //				trace("selectedItems:",id_list_avilable_audits.selectedItems);
 				var len:int = id_list_avilable_audits.selectedItems.length;
+				var freshItems:ArrayList = new ArrayList([]);//Refresh all.
 				for(var i:int=0;i<len;i++)
 				{
-					DataFixture.selectedAuditItems.addItem(id_list_avilable_audits.selectedItems[i]);
+					freshItems.addItem(id_list_avilable_audits.selectedItems[i]);
 				}
+				DataFixture.selectedAuditItems = freshItems;
 			}
 		]]>
 	</fx:Script>

@@ -57,7 +57,14 @@
 			
 			protected function save_btn_clickHandler(event:MouseEvent):void
 			{
-				DataFixture.selectedVehicleItem.productStatus = VehicleItem.STATUS_INSPECTED;
+				//Check the inprogress status.
+				if(this.txtInput_comment.text=="" || this.txtInput_regNo.text=="" || this.txtInput_mileometer.text=="")
+				{
+					DataFixture.selectedVehicleItem.productStatus = VehicleItem.STATUS_IN_PROGRESS;
+				}else
+				{
+					DataFixture.selectedVehicleItem.productStatus = VehicleItem.STATUS_INSPECTED;
+				}
 				//Update the status for audit items.
 				DataFixture.selectedAuditItem.inspectedNumber++;
 				//Navigate to VehicleListView
@@ -148,21 +155,21 @@
 												<s:HGroup verticalAlign="middle">
 													<s:Label text="Previous Comment:" color="0x5E5E5E" fontWeight="bold"/>
 													<s:Spacer width="78"/>
-													<s:TextInput paddingTop="-7" width="800" height="46" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+													<s:TextInput id="txtInput_comment" paddingTop="-7" width="800" height="46" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
 												</s:HGroup>
 											</s:VGroup>	
 											<s:VGroup paddingTop="-8" verticalAlign="middle" gap="15">	
 												<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">
 													<s:Label text="Reg No:"/>
 													<s:Spacer width="167"/>
-													<s:TextInput width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+													<s:TextInput id="txtInput_regNo" width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
 												</s:HGroup>
 											</s:VGroup>
 											<s:VGroup paddingTop="-12" verticalAlign="middle" gap="15">	
 												<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">
 													<s:Label text="Mileometer:"/>
 													<s:Spacer width="142"/>
-													<s:TextInput width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+													<s:TextInput id="txtInput_mileometer" width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
 												</s:HGroup>
 											</s:VGroup>
 											<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">
