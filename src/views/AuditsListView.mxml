@@ -29,11 +29,6 @@
 //				trace(ResourceManager.getInstance().localeChain);
 			}
 			
-			protected function view_creationCompleteHandler(event:FlexEvent):void
-			{
-				
-			}
-			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.pushView(AuditsAvilableView);	
@@ -42,26 +37,31 @@
 			protected function delete_btn_clickHandler(event:MouseEvent):void
 			{
 				//
-				var selectedAuditItemsLen:int = DataFixture.selectedAuditItems.length;
+				var deletedAuditItemsLen:int = DataFixture.deletingAuditItems.length;
+				if(!Boolean(deletedAuditItemsLen)) return;
 				trace("DataFixture.selectedAuditItems:",DataFixture.selectedAuditItems);
-				trace("DataFixture.auditingAuditItems:",DataFixture.auditingAuditItems);
+				trace("DataFixture.auditingAuditItems(before delete):",DataFixture.auditingAuditItems);
 				var auditingAuditItemsLen:int = DataFixture.auditingAuditItems.length;
 				var leftAuditingItems:ArrayList = new ArrayList(DataFixture.auditingAuditItems.source.concat());
-				for(var i:int=0;i<selectedAuditItemsLen;i++)//reverse the auditing items.
+				for(var i:int=0;i<deletedAuditItemsLen;i++)//reverse the auditing items.
 				{
-					var item:AuditItem = id_list_audits.selectedItems[i] as AuditItem;
-					trace("Deleted item:",item);
-					if(DataFixture.auditingAuditItems.getItemIndex(item)!=-1)
+					var delItem:AuditItem = DataFixture.deletingAuditItems.getItemAt(i) as AuditItem;
+					trace("Deleted item:",delItem);
+					if(DataFixture.auditingAuditItems.getItemIndex(delItem)!=-1)
 					{
-						leftAuditingItems.removeItem(item);
-						DataFixture.selectedAuditItems.removeItem(item);
+						leftAuditingItems.removeItem(delItem);
+						DataFixture.selectedAuditItems.removeItem(delItem);
 					}
 					//Recycle it
-					DataFixture.fixedAuditItems.addItem(item);
+					if(DataFixture.fixedAuditItems.getItemIndex(delItem)==-1)//Avoid duplication
+					{
+						DataFixture.fixedAuditItems.addItem(delItem);
+					}
 				}
 				DataFixture.auditingAuditItems = leftAuditingItems;
+				trace("DataFixture.auditingAuditItems(after delete):",DataFixture.auditingAuditItems);
+				DataFixture.deletingAuditItems = new ArrayList([]);//Current delete operation complete.
 			}
-			
 		]]>
 	</fx:Script>
 	
@@ -157,23 +157,24 @@
 												{
 													var rawItem:AuditItem = event.item.rawItem;
 													var selected:Boolean = event.item.selected;
-													trace("DataFixture.selectedAuditItems:",DataFixture.selectedAuditItems);
+													trace("DataFixture.deletingAuditItems:",DataFixture.deletingAuditItems);
 													if(selected)
 													{
-														if(DataFixture.selectedAuditItems.getItemIndex(rawItem)==-1)
+														if(DataFixture.deletingAuditItems.getItemIndex(rawItem)==-1)
 														{
-															DataFixture.selectedAuditItems.addItem(rawItem);
+															DataFixture.deletingAuditItems.addItem(rawItem);
 														}
 													}else
 													{
-														if(DataFixture.selectedAuditItems.getItemIndex(rawItem)!=-1)
+														if(DataFixture.deletingAuditItems.getItemIndex(rawItem)!=-1)
 														{
-															DataFixture.selectedAuditItems.removeItem(rawItem);
+															DataFixture.deletingAuditItems.removeItem(rawItem);
+															trace("DataFixture.deletingAuditItems remove:",rawItem);
 														}
 													}
 													
 												}
-												trace("DataFixture.selectedAuditItems:",DataFixture.selectedAuditItems);
+												trace("DataFixture.deletingAuditItems:",DataFixture.deletingAuditItems);
 											}
 											
 											

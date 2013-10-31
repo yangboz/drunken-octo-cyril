@@ -1,6 +1,7 @@
 package models.vo
 {
 	import mx.collections.ArrayList;
+	import mx.utils.ObjectUtil;
 
 	//--------------------------------------------------------------------------
 	//
@@ -88,7 +89,10 @@ package models.vo
 		// Public methods
 		//
 		//--------------------------------------------------------------------------
-		
+		public function toString():String
+		{
+			return ObjectUtil.toString(this.productName);
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods

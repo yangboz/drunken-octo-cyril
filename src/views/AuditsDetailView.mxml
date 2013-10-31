@@ -32,11 +32,6 @@
 //				trace(ResourceManager.getInstance().localeChain);
 			}
 			
-			protected function view_creationCompleteHandler(event:FlexEvent):void
-			{
-				
-			}
-			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.pushView(AuditsListView);		

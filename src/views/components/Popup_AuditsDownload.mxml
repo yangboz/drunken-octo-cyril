@@ -17,7 +17,7 @@
 			//
 			protected function cancel_btn_click_handler(event:MouseEvent):void
 			{
-				DataFixture.auditingAuditItems = new ArrayList([]);//clean it.
+				DataFixture.downloadingAuditItems = new ArrayList([]);//clean it.
 				this.close();
 			}
 			protected function download_btn_click_handler(event:MouseEvent):void
@@ -28,12 +28,12 @@
 //				DataFixture.fixedAuditItems.removeItem(DataFixture.selectedAuditItem);
 //				DataFixture.auditedAuditItems.addItem(DataFixture.selectedAuditItem);//Append it.
 				//Remove selected items.
-				var len:int = DataFixture.auditingAuditItems.length;
+				var len:int = DataFixture.downloadingAuditItems.length;
 				for(var i:int=0;i<len;i++)
 				{
-					var item:AuditItem = DataFixture.auditingAuditItems.getItemAt(i) as AuditItem;
+					var item:AuditItem = DataFixture.downloadingAuditItems.getItemAt(i) as AuditItem;
 					DataFixture.fixedAuditItems.removeItem(item);
-//					DataFixture.auditingAuditItems.addItem(item);//Append it.
+					DataFixture.auditingAuditItems.addItem(item);//Append it.
 				}
 				//Navigate to the AuditsListView
 				FlexGlobals.topLevelApplication.navigator.pushView(AuditsListView);

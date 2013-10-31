@@ -5,6 +5,7 @@
 		xmlns:components="views.components.*"
 		backgroundAlpha="0"
 		xmlns:mx="library://ns.adobe.com/flex/halo"
+	    creationComplete="view_creationCompleteHandler(event)"
 		>
 	<s:layout>
 		<s:VerticalLayout paddingTop="10" horizontalAlign="center" verticalAlign="top"/>
@@ -12,6 +13,7 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.core.FlexGlobals;
+			import mx.events.FlexEvent;
 			import mx.managers.PopUpManager;
 			
 			import views.components.Popup_LeftNavigation;
@@ -28,6 +30,12 @@
 //				PopUpManager.centerPopUp(menuPopup);
 			}
 			//About chart 
+			
+			protected function view_creationCompleteHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+			}
 			
 		]]>
 	</fx:Script>

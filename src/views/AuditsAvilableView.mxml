@@ -28,11 +28,6 @@
 //				trace(ResourceManager.getInstance().localeChain);
 			}
 			
-			protected function view_creationCompleteHandler(event:FlexEvent):void
-			{
-				
-			}
-			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.pushView(AuditsListView);
@@ -54,8 +49,8 @@
 				{
 					freshItems.addItem(id_list_avilable_audits.selectedItems[i]);
 				}
-				DataFixture.auditingAuditItems = freshItems;
-				trace("DataFixture.auditingAuditItems:",DataFixture.auditingAuditItems);
+				DataFixture.downloadingAuditItems = freshItems;
+				trace("DataFixture.downloadAuditItems:",DataFixture.downloadingAuditItems);
 			}
 		]]>
 	</fx:Script>

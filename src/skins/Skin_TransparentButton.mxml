@@ -16,9 +16,13 @@
 	
 	<fx:Script fb:purpose="styling">
 		<![CDATA[
+			import mx.utils.ColorUtil;
+			private static var colorMatrix:Matrix = new Matrix();
+			private static const CHROME_COLOR_ALPHAS:Array = [1, 1];
+			private static const CHROME_COLOR_RATIOS:Array = [0, 127.5];   
 			/* Define the skin elements that should not be colorized.
 			For button, the graphics are colorized but the label is not. */
-			static private const exclusions:Array = ["labelDisplay","iconDisplay"];
+			static private const exclusions:Array = ["iconDisplay"];
 			
 			override public function get colorizeExclusions():Array {
 				return exclusions;
@@ -27,7 +31,26 @@
 			override protected function initializationComplete():void {
 				useChromeColor = true;
 				super.initializationComplete();
+				//
+				var chromeColor:uint = getStyle("chromeColor");
+				if(this.currentState=="up")
+				{
+					this.graphics.beginFill(chromeColor);
+				}else
+				{
+					var colors:Array = [];
+					colorMatrix.createGradientBox(unscaledWidth, unscaledHeight, Math.PI / 2, 0, 0);
+					colors[0] = ColorUtil.adjustBrightness2(chromeColor, 70);
+					colors[1] = chromeColor;    
+					graphics.beginGradientFill(GradientType.RADIAL, colors, CHROME_COLOR_ALPHAS, CHROME_COLOR_RATIOS, colorMatrix);
+				}
+				graphics.endFill();
 			}
+			protected function mouseOverHandler(event:MouseEvent):void
+			{
+				this.labelDisplay.setStyle("color","0xFFEEDD");
+			}
+			
 		]]>
 	</fx:Script>
 	
@@ -41,13 +64,17 @@
 	
 	<!--<s:Rect left="0" right="0" top="0" bottom="0" >
 	<s:fill>
-	<s:SolidColor color="0x333333" alpha=".1" />
+	<s:SolidColor color="0x333333" alpha=".0" color.over="0x333333"/>
 	</s:fill>
 	</s:Rect>-->
 	
-	<s:BitmapImage source="@Embed('../assets/images/btn_transparent.png')" includeIn="up, disabled"/>
-	<s:BitmapImage source="@Embed('../assets/images/btn_transparent.png')" includeIn="over"/>
-	<s:BitmapImage source="@Embed('../assets/images/btn_transparent.png')" includeIn="down"/>
+	<s:BitmapImage source.up="@Embed('../assets/images/btn_transparent.png')"
+				   source.over="@Embed('../assets/images/btn_transparent.png')"
+				   source.down="@Embed('../assets/images/btn_transparent.png')"
+				   />
+	<!--<s:BitmapImage source="@Embed('../assets/images/btn_transparent.png')" includeIn="up, disabled"/>
+	<s:BitmapImage source="@Embed('../assets/images/btn-bg2.png')" includeIn="over"/>
+	<s:BitmapImage source="@Embed('../assets/images/btn_transparent.png')" includeIn="down"/>-->
 	
 	<!-- layer 8: text -->
 	<s:Label id="labelDisplay"
@@ -57,6 +84,7 @@
 			 horizontalCenter="0" verticalCenter="1"
 			 left="85" right="1" top="2" bottom="2" 
 			 color="0xCDCDCD"
+			 color.down="0x999999"
 			 />
 	<!-- layer 9: icon -->
 	<s:BitmapImage id="iconDisplay"

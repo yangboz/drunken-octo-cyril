@@ -23,11 +23,6 @@
 //				trace(ResourceManager.getInstance().localeChain);
 			}
 			
-			protected function view_creationCompleteHandler(event:FlexEvent):void
-			{
-				
-			}
-			
 			protected function audits_btn_clickHandler(event:MouseEvent):void
 			{
 				this.navigator.pushView(AuditsListView);		
@@ -151,25 +146,25 @@
 												<s:Label text="Ref No:" color="0x5E5E5E" fontWeight="bold"/>
 												<s:Label text="{DataFixture.selectedVehicleItem.productSerial}"/>
 											</s:HGroup>
-											<s:VGroup paddingTop="-4" verticalAlign="middle">
+											<s:VGroup paddingTop="-8" verticalAlign="middle">
 												<s:HGroup verticalAlign="middle">
 													<s:Label text="Previous Comment:" color="0x5E5E5E" fontWeight="bold"/>
-													<s:Spacer width="78"/>
-													<s:TextInput id="txtInput_comment" paddingTop="-7" width="800" height="46" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+													<s:Spacer width="90"/>
+													<s:TextInput id="txtInput_comment" paddingTop="-15" width="800" height="46" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
 												</s:HGroup>
 											</s:VGroup>	
-											<s:VGroup paddingTop="-8" verticalAlign="middle" gap="15">	
+											<s:VGroup paddingTop="-10" verticalAlign="middle" gap="15">	
 												<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">
 													<s:Label text="Reg No:"/>
-													<s:Spacer width="167"/>
-													<s:TextInput id="txtInput_regNo" width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+													<s:Spacer width="175"/>
+													<s:TextInput id="txtInput_regNo" width="800" height="27" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
 												</s:HGroup>
 											</s:VGroup>
-											<s:VGroup paddingTop="-12" verticalAlign="middle" gap="15">	
+											<s:VGroup paddingTop="-8" verticalAlign="middle" gap="15">	
 												<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">
 													<s:Label text="Mileometer:"/>
-													<s:Spacer width="142"/>
-													<s:TextInput id="txtInput_mileometer" width="800" height="30" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
+													<s:Spacer width="145"/>
+													<s:TextInput id="txtInput_mileometer" width="800" height="27" contentBackgroundColor="white" color="0x8E8E8E" borderVisible="false" />
 												</s:HGroup>
 											</s:VGroup>
 											<s:HGroup verticalAlign="top" color="0x5E5E5E" fontWeight="bold">

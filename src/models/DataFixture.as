@@ -36,6 +36,10 @@ package models
 		[Bindable]
 		public static var selectedAuditItems:ArrayList = new ArrayList([]);
 		[Bindable]
+		public static var downloadingAuditItems:ArrayList = new ArrayList([]);//Currently downloading audit items
+		[Bindable]
+		public static var deletingAuditItems:ArrayList = new ArrayList([]);//Currently downloading audit items
+		[Bindable]
 		public static var selectedVehicleItem:VehicleItem;
 		//Fixed for preparing.
 		[Bindable]
@@ -83,6 +87,7 @@ package models
 		{
 			selectedAuditItem = null;
 			selectedAuditItems = new ArrayList([]);
+			downloadingAuditItems = new ArrayList([]);
 			selectedVehicleItem = null;
 			fixedAuditItems = getFixedAuditItems();
 //			fixedVehicleItems = getFixedVehicleItems();
