@@ -83,12 +83,13 @@
 					<s:HGroup horizontalAlign="left" verticalAlign="middle" height="100%" paddingLeft="150" paddingRight="10">
 						<s:Button icon="@Embed('../assets/images/icon-select-gray.png')" 
 								  label=" Select All" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" enabled="false"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-trash-gray.png')" 
 								  label="Delete" skinClass="skins.Skin_TransparentButton"
 								  buttonMode="true" click="delete_btn_clickHandler(event)"
+								  emphasized="true" enabled="{Boolean(DataFixture.deletingAuditItems.length)}"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Spacer width="300" height="100%"/>

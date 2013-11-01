@@ -33,7 +33,7 @@ package models.vo
 		//----------------------------------
 		public static const STATUS_INSPECTED:String = "Inspected";
 		public static const STATUS_IN_PROGRESS:String = "In Progress";
-		public static const STATUS_AUDITED:String = "Audited";
+//		public static const STATUS_AUDITED:String = "Audited";
 		public static const STATUS_NOT_AUDITED:String = "Not Audited";
 		//--------------------------------------------------------------------------
 		//

@@ -34,11 +34,11 @@ package models.vo
 		public var productSchedule:String="";//"Schedule for:05/07/2013"
 		public var productNumber:Number=62;//"62"
 		public var productAppendix:String="";//"Vehicles"
-		public var inspectedNumber:Number=0;//"0"
+//		public var inspectedNumber:Number=0;//"0"//Read only
 		public var otherOutcome:Number=0;//"0"
-		public var inProgressNumber:Number=0;//"0"
-		public var notAuditedNumber:Number=0;//"62"
-		public var totalNumber:Number=0;//
+//		public var inProgressNumber:Number=0;//"0"//Read only
+//		public var notAuditedNumber:Number=0;//"62"//Read only
+//		public var totalNumber:Number=0;//Read only
 		//vehicle inspection related fields.
 		public var vehicleItems:ArrayList;//Vehicle item list for reference.
 		//----------------------------------
@@ -50,8 +50,50 @@ package models.vo
 		// Public properties
 		//
 		//--------------------------------------------------------------------------
-		
-		
+		public function get totalNumber():Number
+		{
+			return this.inProgressNumber + this.inspectedNumber + this.notAuditedNumber + this.otherOutcome;
+		}
+		public function get vehicleCount():Number
+		{
+			return vehicleItems.length;
+		}
+		public function get inProgressNumber():int
+		{
+			var counter:int = 0;
+			for(var i:int=0;i<this.vehicleCount;i++)
+			{
+				if( VehicleItem.STATUS_IN_PROGRESS == (this.vehicleItems.getItemAt(i) as VehicleItem).productStatus )
+				{
+					counter++;
+				}
+			}
+			return counter;
+		}
+		public function get inspectedNumber():int
+		{
+			var counter:int = 0;
+			for(var i:int=0;i<this.vehicleCount;i++)
+			{
+				if( VehicleItem.STATUS_INSPECTED == (this.vehicleItems.getItemAt(i) as VehicleItem).productStatus )
+				{
+					counter++;
+				}
+			}
+			return counter;
+		}
+		public function get notAuditedNumber():int
+		{
+			var counter:int = 0;
+			for(var i:int=0;i<this.vehicleCount;i++)
+			{
+				if( VehicleItem.STATUS_NOT_AUDITED == (this.vehicleItems.getItemAt(i) as VehicleItem).productStatus )
+				{
+					counter++;
+				}
+			}
+			return counter;
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected properties
@@ -65,7 +107,7 @@ package models.vo
 		//
 		//--------------------------------------------------------------------------
 		public function AuditItem(icon:String,name:String,desc:String,type:String,detail:String,schedule:String,pNumber:Number,appendix:String,
-								  inspectedNumber:Number,otherOutcome:Number,inProgressNumber:Number,notAuditedNumber:Number,total:Number,vehicleItems:ArrayList)
+								  otherOutcome:Number,vehicleItems:ArrayList)
 		{
 			super();
 			//
@@ -77,11 +119,10 @@ package models.vo
 			this.productName = name;
 			this.productNumber = pNumber;
 			this.productSchedule = schedule;
-			this.inspectedNumber = inspectedNumber;
+//			this.inspectedNumber = inspectedNumber;
 			this.otherOutcome = otherOutcome;
-			this.inProgressNumber = inProgressNumber;
-			this.notAuditedNumber = notAuditedNumber;
-			this.totalNumber = total;
+//			this.inProgressNumber = inProgressNumber;
+//			this.notAuditedNumber = notAuditedNumber;
 			this.vehicleItems = vehicleItems;
 		} 
 		//--------------------------------------------------------------------------

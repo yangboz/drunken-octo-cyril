@@ -16,10 +16,6 @@
 	
 	<fx:Script fb:purpose="styling">
 		<![CDATA[
-			import mx.utils.ColorUtil;
-			private static var colorMatrix:Matrix = new Matrix();
-			private static const CHROME_COLOR_ALPHAS:Array = [1, 1];
-			private static const CHROME_COLOR_RATIOS:Array = [0, 127.5];   
 			/* Define the skin elements that should not be colorized.
 			For button, the graphics are colorized but the label is not. */
 			static private const exclusions:Array = ["iconDisplay"];
@@ -31,24 +27,6 @@
 			override protected function initializationComplete():void {
 				useChromeColor = true;
 				super.initializationComplete();
-				//
-				var chromeColor:uint = getStyle("chromeColor");
-				if(this.currentState=="up")
-				{
-					this.graphics.beginFill(chromeColor);
-				}else
-				{
-					var colors:Array = [];
-					colorMatrix.createGradientBox(unscaledWidth, unscaledHeight, Math.PI / 2, 0, 0);
-					colors[0] = ColorUtil.adjustBrightness2(chromeColor, 70);
-					colors[1] = chromeColor;    
-					graphics.beginGradientFill(GradientType.RADIAL, colors, CHROME_COLOR_ALPHAS, CHROME_COLOR_RATIOS, colorMatrix);
-				}
-				graphics.endFill();
-			}
-			protected function mouseOverHandler(event:MouseEvent):void
-			{
-				this.labelDisplay.setStyle("color","0xFFEEDD");
 			}
 			
 		]]>
@@ -67,8 +45,7 @@
 	<s:SolidColor color="0x333333" alpha=".0" color.over="0x333333"/>
 	</s:fill>
 	</s:Rect>-->
-	
-	<s:BitmapImage source.up="@Embed('../assets/images/btn_transparent.png')"
+	<s:BitmapImage source.up="@Embed('../assets/images/btn_transparent.png')" 
 				   source.over="@Embed('../assets/images/btn_transparent.png')"
 				   source.down="@Embed('../assets/images/btn_transparent.png')"
 				   />
@@ -83,13 +60,24 @@
 			 maxDisplayedLines="1"
 			 horizontalCenter="0" verticalCenter="1"
 			 left="85" right="1" top="2" bottom="2" 
-			 color="0xCDCDCD"
+			 color.up="0x999999"
 			 color.down="0x999999"
+			 color.disabled="0xCDCDCD"
 			 />
 	<!-- layer 9: icon -->
-	<s:BitmapImage id="iconDisplay"
-				   horizontalAlign="left" verticalAlign="middle"
-				   left="10" top="10"
-				   />
+	<s:BorderContainer borderStyle="solid" 
+					   borderVisible="true" 
+					   cornerRadius="4"
+					   width="100%" height="100%" contentBackgroundAlpha="0" backgroundAlpha="0"
+					   borderColor="0x858585"
+					   borderAlpha.up="0.4"
+					   borderAlpha.down="0.8"
+					   borderAlpha.disabled="0.05"
+					   >
+		<s:BitmapImage id="iconDisplay"
+					   horizontalAlign="left" verticalAlign="middle"
+					   left="10" top="10"
+					   />
+	</s:BorderContainer>
 	
 </s:SparkSkin>

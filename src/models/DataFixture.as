@@ -114,9 +114,9 @@ package models
 		{
 			return new ArrayList(
 				[
-					new AuditItem("","0303-Camden Motors","Inspect all documents.","Physical","77-83 Grovebuy road leighton buzzard beds,lu7 8te","Schedule for:10/01/2013",3,"Vehicles",0,0,0,3,3,getFixedVehicleItems_00()),
-					new AuditItem("","8900-Iuton Cars Ltd","Check vehicles also in the underground.","Physical","Grange Road Luton Hal Street,Beds LU1 988","Schedule for:10/03/2013",4,"Vehicles",0,0,0,4,4,getFixedVehicleItems_01()),
-					new AuditItem("","7356-Spark Cars Ltd","Check vehicles also in the underground.","Physical","77-83 Grovebuy road leighton buzzard beds,lu7 8te","Schedule for:10/07/2013",12,"Vehicles",0,0,0,12,12,getFixedVehicleItems_02())
+					new AuditItem("","0303-Camden Motors","Inspect all documents.","Physical","77-83 Grovebuy road leighton buzzard beds,lu7 8te","Schedule for:10/01/2013",3,"Vehicles",0,getFixedVehicleItems_00()),
+					new AuditItem("","8900-Iuton Cars Ltd","Check vehicles also in the underground.","Physical","Grange Road Luton Hal Street,Beds LU1 988","Schedule for:10/03/2013",4,"Vehicles",0,getFixedVehicleItems_01()),
+					new AuditItem("","7356-Spark Cars Ltd","Check vehicles also in the underground.","Physical","77-83 Grovebuy road leighton buzzard beds,lu7 8te","Schedule for:10/07/2013",12,"Vehicles",0,getFixedVehicleItems_02())
 				]
 			);	
 		}

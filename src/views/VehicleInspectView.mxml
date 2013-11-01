@@ -60,8 +60,6 @@
 				{
 					DataFixture.selectedVehicleItem.productStatus = VehicleItem.STATUS_INSPECTED;
 				}
-				//Update the status for audit items.
-				DataFixture.selectedAuditItem.inspectedNumber++;
 				//Navigate to VehicleListView
 				this.navigator.pushView(VehicleListView);
 			}

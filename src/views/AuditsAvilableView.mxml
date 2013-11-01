@@ -73,12 +73,12 @@
 					<s:HGroup horizontalCenter="0" horizontalAlign="center" verticalAlign="middle" height="100%" paddingLeft="10" paddingRight="10">
 						<s:Button icon="@Embed('../assets/images/icon-select-gray.png')" 
 								  label=" Select All" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" enabled="false"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-download-gray.png')" 
 								  label="Download" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" enabled="{Boolean(id_list_avilable_audits.selectedItems.length)}"
 								  click="download_btn_clickHandler(event)"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
