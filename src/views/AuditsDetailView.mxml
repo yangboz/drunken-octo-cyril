@@ -102,6 +102,7 @@
 						<s:Button icon="@Embed('../assets/images/icon-sync.png')" 
 								  label="Sync Audit" skinClass="skins.Skin_TransparentButton"
 								  buttonMode="true" click="sync_btn_clickHandler(event)"
+								  enabled="false"
 								  />
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/transmit.png')" 
@@ -112,7 +113,7 @@
 						<s:BitmapImage source="@Embed('../assets/images/split.png')" />
 						<s:Button icon="@Embed('../assets/images/icon-dealer.png')" 
 								  label="Dealer Info." skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" enabled="false"
 								  />
 					</s:HGroup>
 				</s:BorderContainer>

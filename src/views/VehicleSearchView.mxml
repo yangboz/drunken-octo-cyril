@@ -95,7 +95,8 @@
 							  verticalAlign="middle">
 						<s:Label color="0x4A4A4A" fontSize="14" fontWeight="bold" text="Enter Data"/>
 						<s:Spacer width="100%" height="100%"/>
-						<s:Button label="  Search in all audits" buttonMode="true"
+						<s:Button label="  Search in all audits" 
+								  buttonMode="true" enabled="false"
 								  icon="@Embed('../assets/images/icon-select-blue.png')"
 								  skinClass="skins.Skin_TransparentButton"/>
 					</s:HGroup>
@@ -106,7 +107,8 @@
 							<s:TextInput width="100%" height="58" borderVisible="false" color="0x8E8E8E"
 										 contentBackgroundColor="white" enabled="{!Boolean(modelTabBar.selectedIndex)}"/>
 						</s:BorderContainer>
-						<s:Button label="Search" buttonMode="true" 
+						<s:Button label="Search" 
+								  buttonMode="true" enabled="false" 
 								  skinClass="skins.Skin_NormalButton"/>
 					</s:VGroup>
 					

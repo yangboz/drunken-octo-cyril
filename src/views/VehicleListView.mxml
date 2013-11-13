@@ -79,7 +79,7 @@
 						<s:Spacer width="300" height="100%"/>
 						<s:Button icon="@Embed('../assets/images/icon-filter.PNG')" 
 								  label="  Clear filter" skinClass="skins.Skin_TransparentButton"
-								  buttonMode="true"
+								  buttonMode="true" enabled="false"
 								  />
 					</s:HGroup>
 				</s:BorderContainer>
